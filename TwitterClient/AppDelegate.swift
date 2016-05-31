@@ -62,8 +62,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //print("account: \(response)")
         
-        let user = response as! NSDictionary
-        print("name: \(user["name"]!)")
+        let user = User(dictionary: response as! NSDictionary)
+        print("name: \(user.name)")
         }, failure: { (task: NSURLSessionDataTask?, error: NSError) in
           
           print("error: \(error.localizedDescription)")
@@ -73,10 +73,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //print("account: \(response)")
         
-        let tweets = response as! [NSDictionary]
+        let tweets = Tweet.tweetsFromArray(response as! [NSDictionary])
         
         for tweet in tweets {
-          print("\(tweet["text"]!)")
+          print("\(tweet.text!)")
         }
       }, failure: { (task: NSURLSessionDataTask?, error: NSError) in
           
