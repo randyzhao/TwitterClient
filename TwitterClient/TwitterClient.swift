@@ -55,27 +55,31 @@ class TwitterClient: BDBOAuth1SessionManager {
     let requestToken = BDBOAuth1Credential(queryString: url.query)
     fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToekn: BDBOAuth1Credential!) in
       print("I got the access token")
-      
-      self.loginSuccess?()
-      
+
       self.homeTimeline({ (tweets: [Tweet]) -> Void in
-        for tweet in tweets {
-          print(tweet.text!)
-        }
         }, failure: { (error: NSError) -> Void in
       })
       
-      self.currentAccount({ (User) in
-        
+      self.currentAccount(
+        { (user: User) in
+          User.currentUser = user
+          self.loginSuccess?()
         }, failure: { (error: NSError) in
-          
-      })
+          self.loginFailure?(error)
+        }
+      )
       
       
     }) { (error: NSError!) in
       print("error: \(error.localizedDescription)")
       self.loginFailure?(error)
     }
-
+  }
+  
+  func logout() {
+    deauthorize()
+    User.currentUser = nil
+    
+    NSNotificationCenter.defaultCenter().postNotificationName("UserDidLogout", object: nil)
   }
 }

@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  TweetsViewController.swift
 //  TwitterClient
 //
 //  Created by randy_zhao on 5/31/16.
@@ -7,13 +7,14 @@
 //
 
 import UIKit
-import BDBOAuth1Manager
 
-class LoginViewController: UIViewController {
+class TweetsViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    navigationItem.title = "Home"
+    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(onLogoutButton))
     // Do any additional setup after loading the view.
   }
   
@@ -22,13 +23,8 @@ class LoginViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
-  @IBAction func onLoginButton(sender: AnyObject) {
-    TwitterClient.sharedInstance.login({ 
-      print("I have logged in")
-      self.navigationController?.pushViewController(TweetsViewController(), animated: true)
-    }) { (error: NSError) in
-      print("error: \(error.localizedDescription)")
-    }
+  func onLogoutButton() {
+    TwitterClient.sharedInstance.logout()
   }
   /*
    // MARK: - Navigation

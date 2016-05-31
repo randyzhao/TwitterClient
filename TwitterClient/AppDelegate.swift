@@ -17,16 +17,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
-    window = UIWindow(frame: UIScreen.mainScreen().bounds)
-    //window!.rootViewController = BusinessViewController()
-    let nvc = UINavigationController()
-    nvc.pushViewController(LoginViewController(), animated: false)
-    window!.rootViewController = nvc
-    
-    window!.makeKeyAndVisible()
+    instantiateInitialViewController()
+    NSNotificationCenter.defaultCenter().addObserverForName("UserDidLogout", object: nil, queue: NSOperationQueue.mainQueue()) {
+      (notification: NSNotification) in
+      
+      self.instantiateInitialViewController()
+    }
     return true
   }
 
+  func instantiateInitialViewController() {
+    window = UIWindow(frame: UIScreen.mainScreen().bounds)
+    
+    let nvc = UINavigationController()
+    
+    let initialViewController: UIViewController
+    
+    if let currentUser = User.currentUser {
+      print("There is a current user: \(currentUser.name)")
+      initialViewController = TweetsViewController()
+    } else {
+      print("There is no current user")
+      initialViewController = LoginViewController()
+    }
+    
+    
+    nvc.pushViewController(initialViewController, animated: false)
+    window!.rootViewController = nvc
+    
+    window!.makeKeyAndVisible()
+  }
+  
   func applicationWillResignActive(application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -50,13 +71,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
-    print(url)
-    
-    let requestToken = BDBOAuth1Credential(queryString: url.query)
-    let client = TwitterClient.sharedInstance
-    client.handleOpenUrl(url)
-    
-        return true
+    TwitterClient.sharedInstance.handleOpenUrl(url)
+    return true
   }
 }
 
