@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="TwitterClient" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Er8-Rc-gaU">
+                    <rect key="frame" x="109" y="344" width="371" height="155"/>
+                    <color key="backgroundColor" red="0.20241009495958473" green="0.98888924321954841" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Login Twitter"/>
+                    <connections>
+                        <action selector="onLoginButton:" destination="-1" eventType="touchUpInside" id="kdP-nY-DrJ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Er8-Rc-gaU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="109" id="2Nk-NG-xFI"/>
+                <constraint firstItem="Er8-Rc-gaU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="344" id="7bv-Zx-8eY"/>
+                <constraint firstAttribute="trailing" secondItem="Er8-Rc-gaU" secondAttribute="trailing" constant="120" id="Pzz-5E-d8N"/>
+                <constraint firstAttribute="bottom" secondItem="Er8-Rc-gaU" secondAttribute="bottom" constant="101" id="hzo-bo-XzK"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

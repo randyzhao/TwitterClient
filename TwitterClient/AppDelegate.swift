@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import BDBOAuth1Manager
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
+    window = UIWindow(frame: UIScreen.mainScreen().bounds)
+    //window!.rootViewController = BusinessViewController()
+    let nvc = UINavigationController()
+    nvc.pushViewController(LoginViewController(), animated: false)
+    window!.rootViewController = nvc
+    
+    window!.makeKeyAndVisible()
     return true
   }
 
@@ -41,6 +49,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
 
-
+  func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+    print(url)
+    
+    let requestToken = BDBOAuth1Credential(queryString: url.query)
+    let twitterClient = BDBOAuth1SessionManager(baseURL: NSURL(string: "https://api.twitter.com")!, consumerKey: "O7nUPAjghP7CsDjKp9DCtfhgi", consumerSecret: "7qW6FFx3YybObsSrmYDQqUbHIdgdue2TE7JcSWUszCiaYdU2y8")
+    
+    twitterClient.fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToekn: BDBOAuth1Credential!) in
+      print("I got the access token")
+      
+      twitterClient.GET("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) in
+        
+        //print("account: \(response)")
+        
+        let user = response as! NSDictionary
+        print("name: \(user["name"]!)")
+        }, failure: { (task: NSURLSessionDataTask?, error: NSError) in
+          
+          print("error: \(error.localizedDescription)")
+      })
+      
+      twitterClient.GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) in
+        
+        //print("account: \(response)")
+        
+        let tweets = response as! [NSDictionary]
+        
+        for tweet in tweets {
+          print("\(tweet["text"]!)")
+        }
+      }, failure: { (task: NSURLSessionDataTask?, error: NSError) in
+          
+          print("error: \(error.localizedDescription)")
+      })
+      
+    }) { (error: NSError!) in
+      print("error: \(error.localizedDescription)")
+    }
+    return true
+  }
 }
 
