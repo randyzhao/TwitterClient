@@ -15,6 +15,7 @@
 		A499C9E71CFE32BD003B97E2 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A499C9E51CFE32BD003B97E2 /* LoginViewController.xib */; };
 		A499C9EB1CFE3D07003B97E2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499C9EA1CFE3D07003B97E2 /* User.swift */; };
 		A499C9ED1CFE3D10003B97E2 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499C9EC1CFE3D10003B97E2 /* Tweet.swift */; };
+		A499C9EF1CFE41AB003B97E2 /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499C9EE1CFE41AB003B97E2 /* TwitterClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		A499C9E51CFE32BD003B97E2 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		A499C9EA1CFE3D07003B97E2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A499C9EC1CFE3D10003B97E2 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		A499C9EE1CFE41AB003B97E2 /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
 		A6F378958ED2DDFE5E69E8CB /* Pods-TwitterClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterClient/Pods-TwitterClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +116,7 @@
 		A499C9E91CFE3CE7003B97E2 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				A499C9EE1CFE41AB003B97E2 /* TwitterClient.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A499C9EF1CFE41AB003B97E2 /* TwitterClient.swift in Sources */,
 				A499C9E61CFE32BD003B97E2 /* LoginViewController.swift in Sources */,
 				A499C9D21CFE3183003B97E2 /* AppDelegate.swift in Sources */,
 				A499C9EB1CFE3D07003B97E2 /* User.swift in Sources */,
