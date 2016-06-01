@@ -22,6 +22,8 @@ class TweetsViewController: UIViewController {
     tweetTableView.registerNib(UINib(nibName: "TweetTableViewCell", bundle: nil), forCellReuseIdentifier: "tweetCell")
     tweetTableView.dataSource = self
     tweetTableView.delegate = self
+    tweetTableView.rowHeight = UITableViewAutomaticDimension
+    tweetTableView.estimatedRowHeight = 100
     
     TwitterClient.sharedInstance.homeTimeline({ (tweets: [Tweet]) in
       self.tweets = tweets

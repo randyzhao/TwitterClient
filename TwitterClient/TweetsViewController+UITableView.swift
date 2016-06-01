@@ -19,7 +19,7 @@ extension TweetsViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tweetTableView.dequeueReusableCellWithIdentifier("tweetCell", forIndexPath: indexPath) as! TweetTableViewCell
-    cell.tweetTextLabel.text = tweets[indexPath.row].text
+    cell.tweet = tweets[indexPath.row]
     return cell
   }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class User {
   var name: String?
@@ -29,6 +30,16 @@ class User {
     }
     
     tagline = dictionary["description"] as? String
+  }
+  
+  init(json: JSON) {
+    name = json["name"].string
+    screenname = json["screenname"].string
+    if let profileUrlString = json["profile_image_url_https"].string {
+      profileUrl = NSURL(string: profileUrlString)
+    }
+    tagline = json["description"].string
+    originalDictionary = json.dictionaryObject
   }
   
   class var currentUser: User? {
