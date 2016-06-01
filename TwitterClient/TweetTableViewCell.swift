@@ -10,8 +10,11 @@ import UIKit
 
 class TweetTableViewCell: UITableViewCell {
   
+  @IBOutlet weak var retweetStatusView: UIView!
+  @IBOutlet weak var retweetStatusViewHeightConstraint: NSLayoutConstraint!
   @IBOutlet weak var tweetTextLabel: UILabel!
   @IBOutlet weak var usernameLabel: UILabel!
+  @IBOutlet weak var retweetedByLabel: UILabel!
   @IBOutlet weak var profileImageView: UIImageView!
   
   var tweet: Tweet? {
@@ -21,8 +24,22 @@ class TweetTableViewCell: UITableViewCell {
       if let profileUrl = tweet?.user?.profileUrl {
         profileImageView.setImageWithURL(profileUrl)
       }
+      
+      if let tweetType = tweet?.tweetType {
+        switch tweetType {
+        case .Original:
+          retweetStatusViewHeightConstraint.constant = 0
+          retweetStatusView.hidden = true
+        case .Retweet:
+          retweetStatusViewHeightConstraint.constant = 20
+          retweetStatusView.hidden = false
+          let retweet = tweet as! Retweet
+          retweetedByLabel.text = retweet.retweetedBy?.name
+        }
+      }
     }
   }
+    
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
@@ -33,5 +50,4 @@ class TweetTableViewCell: UITableViewCell {
     
     // Configure the view for the selected state
   }
-  
 }

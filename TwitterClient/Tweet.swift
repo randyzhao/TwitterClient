@@ -22,18 +22,17 @@ protocol Tweet {
   var favoritesCount: Int? { get }
   var retweetedByName: String? { get }
   var tweetType: TweetType { get }
-  var userName: String? { get }
   var user: User? { get }
 }
 
 
 class TweetHelper {
-  class func tweetFromNetworking(data: AnyObject?) -> Tweet? {
-    guard let data = data else {
-      return nil
+  class func tweetFromJSON(json: JSON) -> Tweet {
+    if json["retweeted_status"].dictionary != nil {
+      return Retweet(json: json)
+    } else {
+      return OriginalTweet(json: json)
     }
-    let json = JSON(data)
-    return OriginalTweet(json: json)
   }
   
   class func tweetsFromNetworking(data: AnyObject?) -> [Tweet]? {
@@ -43,7 +42,7 @@ class TweetHelper {
     var tweets = [Tweet]()
     let json = JSON(data)
     for (_, subJSON): (String, JSON) in json {
-      tweets.append(OriginalTweet(json: subJSON))
+      tweets.append(tweetFromJSON(subJSON))
     }
     return tweets
   }
@@ -55,43 +54,10 @@ class OriginalTweet: Tweet {
   var retweetCount: Int? = 0
   var favoritesCount: Int? = 0
   var retweetedByName: String?
-  var userName: String?
   var tweetType: TweetType {
     return .Original
   }
   var user: User?
-  /**
-  init(dictionary: NSDictionary) {
-    text = dictionary["text"]  as? String
-    retweetCount = dictionary["retweet_count"] as? Int ?? 0
-    favoritesCount = dictionary["favourites_count"] as? Int ?? 0
-    
-    let timestampString = dictionary["created_at"] as? String
-    let formatter = NSDateFormatter()
-    formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
-    if let timestampString = timestampString {
-      timestamp = formatter.dateFromString(timestampString)
-    }
-  }
-  
-  class func tweetsFromArray(dictionaries: [NSDictionary]) -> [Tweet] {
-    var tweets = [Tweet]()
-    
-    for dictionary in dictionaries {
-      let tweet = Tweet(dictionary: dictionary)
-      tweets.append(tweet)
-    }
-    return tweets
-  }
-  
-  class func tweetsFromNetworking(response: AnyObject?) -> [Tweet] {
-    var tweets = [Tweet]()
-    guard let response = response else {
-      return tweets
-    }
-    let json = JSON(response)
-  }
- */
   
   init(json: JSON) {
     text = json["text"].string
@@ -102,12 +68,10 @@ class OriginalTweet: Tweet {
     }
     retweetCount = json["retweet_count"].int
     favoritesCount = json["favourites_count"].int
-    userName = json["user"]["name"].string
     user = User(json: json["user"])
   }
 }
 
-/**
 class Retweet: Tweet {
   let originalTweet: OriginalTweet?
   var retweetedByName: String?
@@ -131,12 +95,16 @@ class Retweet: Tweet {
     return .Retweet
   }
   
+  var user: User? {
+    return originalTweet?.user
+  }
+  
+  var retweetedBy: User?
+  
   init(json: JSON) {
-    if let retweetedStatus = json["retweeted_status"].dictionary {
-      originalTweet = OriginalTweet(json: retweetedStatus)
-    }
-    
+    originalTweet = OriginalTweet(json: json["retweeted_status"])
+    retweetedBy = User(json: json["user"])
   }
  }
- */
+
 
