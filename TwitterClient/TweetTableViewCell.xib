@@ -41,6 +41,64 @@
                             <constraint firstItem="lRf-6a-xHt" firstAttribute="leading" secondItem="oG1-TJ-d9P" secondAttribute="trailing" constant="8" id="ovj-J0-VCz"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ir3-8p-U3h" userLabel="buttons view">
+                        <rect key="frame" x="8" y="162" width="397" height="30"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reply" translatesAutoresizingMaskIntoConstraints="NO" id="xsk-d6-v45">
+                                <rect key="frame" x="72" y="7" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="4qd-km-Q4V"/>
+                                    <constraint firstAttribute="width" constant="16" id="Iwl-z1-3Zy"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet" translatesAutoresizingMaskIntoConstraints="NO" id="wPm-uN-vQ9">
+                                <rect key="frame" x="138" y="7" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="0em-mc-zZ0"/>
+                                    <constraint firstAttribute="height" constant="16" id="5fC-O9-Idb"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like" translatesAutoresizingMaskIntoConstraints="NO" id="tjW-4y-z42">
+                                <rect key="frame" x="232" y="7" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="Vyo-R1-hNE"/>
+                                    <constraint firstAttribute="width" constant="16" id="kO4-DM-MdB"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="666" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OyW-bc-8el">
+                                <rect key="frame" x="250" y="7" width="27" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="555" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1Z-jm-ZFB">
+                                <rect key="frame" x="156" y="7" width="26" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tjW-4y-z42" firstAttribute="centerY" secondItem="Ir3-8p-U3h" secondAttribute="centerY" id="4X8-mW-pZL"/>
+                            <constraint firstAttribute="height" constant="30" id="DAZ-eI-Hmk"/>
+                            <constraint firstItem="xsk-d6-v45" firstAttribute="leading" secondItem="Ir3-8p-U3h" secondAttribute="leadingMargin" constant="64" id="GAn-Mu-eFd"/>
+                            <constraint firstItem="wPm-uN-vQ9" firstAttribute="centerY" secondItem="Ir3-8p-U3h" secondAttribute="centerY" id="Hh2-Sh-V0e"/>
+                            <constraint firstItem="S1Z-jm-ZFB" firstAttribute="centerY" secondItem="Ir3-8p-U3h" secondAttribute="centerY" id="Ih8-Lh-MWH"/>
+                            <constraint firstItem="OyW-bc-8el" firstAttribute="leading" secondItem="tjW-4y-z42" secondAttribute="trailing" constant="2" id="Quc-Vm-cva"/>
+                            <constraint firstItem="OyW-bc-8el" firstAttribute="centerY" secondItem="Ir3-8p-U3h" secondAttribute="centerY" id="XgX-E3-xav"/>
+                            <constraint firstItem="wPm-uN-vQ9" firstAttribute="leading" secondItem="xsk-d6-v45" secondAttribute="trailing" constant="50" id="Y72-E6-ytW"/>
+                            <constraint firstItem="tjW-4y-z42" firstAttribute="leading" secondItem="wPm-uN-vQ9" secondAttribute="trailing" constant="50" id="eoH-Pm-gaP"/>
+                            <constraint firstItem="tjW-4y-z42" firstAttribute="leading" secondItem="S1Z-jm-ZFB" secondAttribute="trailing" constant="50" id="hV9-rh-weF"/>
+                            <constraint firstItem="S1Z-jm-ZFB" firstAttribute="leading" secondItem="wPm-uN-vQ9" secondAttribute="trailing" constant="2" id="jUg-CE-9r0"/>
+                            <constraint firstItem="xsk-d6-v45" firstAttribute="centerY" secondItem="Ir3-8p-U3h" secondAttribute="centerY" id="jo0-Ns-4L4"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="eoH-Pm-gaP"/>
+                            </mask>
+                        </variation>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zbj-C6-2DL" userLabel="tweet view">
                         <rect key="frame" x="8" y="28" width="397" height="134"/>
                         <subviews>
@@ -67,33 +125,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="6bw-tL-6N4" firstAttribute="leading" secondItem="ZV2-C3-4b5" secondAttribute="trailing" constant="8" id="AfZ-ZH-tTy"/>
-                            <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="ZV2-C3-4b5" secondAttribute="bottom" id="Bnz-Ba-Fn6"/>
+                            <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="ZV2-C3-4b5" secondAttribute="bottom" priority="999" id="Bnz-Ba-Fn6"/>
                             <constraint firstItem="Eib-gr-SnL" firstAttribute="top" secondItem="Zbj-C6-2DL" secondAttribute="topMargin" id="CRq-nU-CTz"/>
                             <constraint firstItem="ZV2-C3-4b5" firstAttribute="leading" secondItem="Zbj-C6-2DL" secondAttribute="leadingMargin" id="G6I-g9-MwO"/>
                             <constraint firstItem="ZV2-C3-4b5" firstAttribute="top" secondItem="Zbj-C6-2DL" secondAttribute="topMargin" id="Iuh-Zg-gzj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6bw-tL-6N4" secondAttribute="trailing" id="QaX-9g-Fnk"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="6bw-tL-6N4" secondAttribute="bottom" id="YBG-BE-yaN"/>
                             <constraint firstItem="6bw-tL-6N4" firstAttribute="top" secondItem="Eib-gr-SnL" secondAttribute="bottom" constant="4" id="eCr-fx-us2"/>
                             <constraint firstItem="Eib-gr-SnL" firstAttribute="leading" secondItem="ZV2-C3-4b5" secondAttribute="trailing" constant="8" id="eOd-3J-wXk"/>
                             <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="6bw-tL-6N4" secondAttribute="bottom" id="zCB-AQ-7dd"/>
                         </constraints>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ir3-8p-U3h" userLabel="buttons view">
-                        <rect key="frame" x="8" y="162" width="397" height="30"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reply" translatesAutoresizingMaskIntoConstraints="NO" id="xsk-d6-v45">
-                                <rect key="frame" x="72" y="7" width="16" height="16"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="16" id="4qd-km-Q4V"/>
-                                    <constraint firstAttribute="width" constant="16" id="Iwl-z1-3Zy"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="30" id="DAZ-eI-Hmk"/>
-                            <constraint firstItem="xsk-d6-v45" firstAttribute="leading" secondItem="Ir3-8p-U3h" secondAttribute="leadingMargin" constant="64" id="GAn-Mu-eFd"/>
-                            <constraint firstItem="xsk-d6-v45" firstAttribute="centerY" secondItem="Ir3-8p-U3h" secondAttribute="centerY" id="jo0-Ns-4L4"/>
-                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="zCB-AQ-7dd"/>
+                            </mask>
+                        </variation>
                     </view>
                 </subviews>
                 <constraints>
@@ -104,14 +150,15 @@
                     <constraint firstItem="Ir3-8p-U3h" firstAttribute="top" secondItem="Zbj-C6-2DL" secondAttribute="bottom" id="TYd-fC-Zq1"/>
                     <constraint firstItem="Ir3-8p-U3h" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="UN2-eK-e7z"/>
                     <constraint firstItem="Zbj-C6-2DL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="aRc-Mx-tM6"/>
-                    <constraint firstItem="Zbj-C6-2DL" firstAttribute="top" secondItem="kXV-Vz-2eI" secondAttribute="bottom" id="eej-k0-epk"/>
                     <constraint firstItem="Zbj-C6-2DL" firstAttribute="top" secondItem="kXV-Vz-2eI" secondAttribute="bottom" id="gTH-yO-aaD"/>
                     <constraint firstItem="Ir3-8p-U3h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="omH-Ft-f5s"/>
                     <constraint firstItem="kXV-Vz-2eI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="rSH-bk-1Ml"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="loveCountLabel" destination="OyW-bc-8el" id="35M-rH-Krb"/>
                 <outlet property="profileImageView" destination="ZV2-C3-4b5" id="ojC-UC-F5i"/>
+                <outlet property="retweetCountLabel" destination="S1Z-jm-ZFB" id="ebj-jI-rmL"/>
                 <outlet property="retweetStatusView" destination="kXV-Vz-2eI" id="fCy-oL-MMA"/>
                 <outlet property="retweetStatusViewHeightConstraint" destination="6vY-BH-vsm" id="Vzr-XE-7YB"/>
                 <outlet property="retweetedByLabel" destination="lRf-6a-xHt" id="9nf-Zx-Qe7"/>
@@ -122,6 +169,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="like" width="27" height="36"/>
         <image name="reply" width="32" height="36"/>
         <image name="retweet" width="37" height="36"/>
     </resources>

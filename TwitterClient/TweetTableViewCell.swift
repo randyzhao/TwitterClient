@@ -16,6 +16,8 @@ class TweetTableViewCell: UITableViewCell {
   @IBOutlet weak var usernameLabel: UILabel!
   @IBOutlet weak var retweetedByLabel: UILabel!
   @IBOutlet weak var profileImageView: UIImageView!
+  @IBOutlet weak var retweetCountLabel: UILabel!
+  @IBOutlet weak var loveCountLabel: UILabel!
   
   var tweet: Tweet? {
     didSet {
@@ -24,6 +26,8 @@ class TweetTableViewCell: UITableViewCell {
       if let profileUrl = tweet?.user?.profileUrl {
         profileImageView.setImageWithURL(profileUrl)
       }
+      retweetCountLabel.text = String(tweet?.retweetCount ?? 0)
+      loveCountLabel.text = String(tweet?.favoritesCount ?? 0)
       
       if let tweetType = tweet?.tweetType {
         switch tweetType {
@@ -34,7 +38,7 @@ class TweetTableViewCell: UITableViewCell {
           retweetStatusViewHeightConstraint.constant = 20
           retweetStatusView.hidden = false
           let retweet = tweet as! Retweet
-          retweetedByLabel.text = retweet.retweetedBy?.name
+          retweetedByLabel.text = "\(retweet.retweetedBy?.name ?? "Unknown") Retweeted"
         }
       }
     }
