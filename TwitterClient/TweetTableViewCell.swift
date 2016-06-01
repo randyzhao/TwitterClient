@@ -18,7 +18,7 @@ class TweetTableViewCell: UITableViewCell {
   @IBOutlet weak var profileImageView: UIImageView!
   @IBOutlet weak var retweetCountLabel: UILabel!
   @IBOutlet weak var loveCountLabel: UILabel!
-  
+  @IBOutlet weak var timestampDiffLabel: UILabel!
   var tweet: Tweet? {
     didSet {
       tweetTextLabel.text = tweet?.text
@@ -28,6 +28,7 @@ class TweetTableViewCell: UITableViewCell {
       }
       retweetCountLabel.text = String(tweet?.retweetCount ?? 0)
       loveCountLabel.text = String(tweet?.favoritesCount ?? 0)
+      timestampDiffLabel.text = calcTimestampDiff(tweet?.timestamp)
       
       if let tweetType = tweet?.tweetType {
         switch tweetType {
@@ -41,6 +42,27 @@ class TweetTableViewCell: UITableViewCell {
           retweetedByLabel.text = "\(retweet.retweetedBy?.name ?? "Unknown") Retweeted"
         }
       }
+    }
+  }
+  
+  func calcTimestampDiff(timestamp: NSDate?) -> String {
+    guard timestamp != nil else {
+      return ""
+    }
+    
+    let now = NSDate()
+    let cal = NSCalendar.currentCalendar()
+    let components = cal.components(NSCalendarUnit.Minute, fromDate: timestamp!, toDate: now, options: [])
+    let minutes = components.minute
+    switch minutes {
+    case 0:
+      return "now"
+    case 1..<60:
+      return "\(minutes)m"
+    case 60..<1440:
+      return "\(minutes / 60)h"
+    default:
+      return "\(minutes / 1440)d"
     }
   }
     
