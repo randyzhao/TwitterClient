@@ -10,11 +10,25 @@ import UIKit
 
 class TweetsViewController: UIViewController {
   
+  @IBOutlet weak var tweetTableView: UITableView!
+  var tweets = [Tweet]()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     navigationItem.title = "Home"
     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(onLogoutButton))
+    
+    tweetTableView.registerNib(UINib(nibName: "TweetTableViewCell", bundle: nil), forCellReuseIdentifier: "tweetCell")
+    tweetTableView.dataSource = self
+    tweetTableView.delegate = self
+    
+    TwitterClient.sharedInstance.homeTimeline({ (tweets: [Tweet]) in
+      self.tweets = tweets
+      self.tweetTableView.reloadData()
+      }) { (error) in
+        print("error: \(error.localizedDescription)")
+    }
     // Do any additional setup after loading the view.
   }
   
