@@ -8,5 +8,5 @@ target 'TwitterClient' do
   # Pods for TwitterClient
   pod 'AFNetworking'
   pod 'BDBOAuth1Manager'
-
+  pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 end

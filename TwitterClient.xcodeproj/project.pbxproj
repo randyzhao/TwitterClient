@@ -88,6 +88,7 @@
 		A499C9D01CFE3183003B97E2 /* TwitterClient */ = {
 			isa = PBXGroup;
 			children = (
+				A4FB5F531CFE5ACC006ABBE5 /* Views */,
 				A499C9E91CFE3CE7003B97E2 /* API */,
 				A499C9E81CFE3CDC003B97E2 /* Models */,
 				A499C9E31CFE32AC003B97E2 /* ViewControllers */,
@@ -125,6 +126,13 @@
 				A499C9EE1CFE41AB003B97E2 /* TwitterClient.swift */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		A4FB5F531CFE5ACC006ABBE5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
