@@ -20,7 +20,6 @@ protocol Tweet {
   var timestamp: NSDate? { get }
   var retweetCount: Int? { get }
   var favoritesCount: Int? { get }
-  var retweetedByName: String? { get }
   var tweetType: TweetType { get }
   var user: User? { get }
 }
@@ -53,7 +52,6 @@ class OriginalTweet: Tweet {
   var timestamp: NSDate?
   var retweetCount: Int? = 0
   var favoritesCount: Int? = 0
-  var retweetedByName: String?
   var tweetType: TweetType {
     return .Original
   }
@@ -74,7 +72,6 @@ class OriginalTweet: Tweet {
 
 class Retweet: Tweet {
   let originalTweet: OriginalTweet?
-  var retweetedByName: String?
   var text: String? {
     return originalTweet?.text
   }

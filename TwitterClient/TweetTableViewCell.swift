@@ -10,11 +10,10 @@ import UIKit
 
 class TweetTableViewCell: UITableViewCell {
   
-  @IBOutlet weak var retweetStatusView: UIView!
+  @IBOutlet weak var retweetStatusView: RetweetStatusView!
   @IBOutlet weak var retweetStatusViewHeightConstraint: NSLayoutConstraint!
   @IBOutlet weak var tweetTextLabel: UILabel!
   @IBOutlet weak var usernameLabel: UILabel!
-  @IBOutlet weak var retweetedByLabel: UILabel!
   @IBOutlet weak var profileImageView: UIImageView!
   @IBOutlet weak var retweetCountLabel: UILabel!
   @IBOutlet weak var loveCountLabel: UILabel!
@@ -29,6 +28,7 @@ class TweetTableViewCell: UITableViewCell {
       retweetCountLabel.text = String(tweet?.retweetCount ?? 0)
       loveCountLabel.text = String(tweet?.favoritesCount ?? 0)
       timestampDiffLabel.text = calcTimestampDiff(tweet?.timestamp)
+      retweetStatusView.tweet = tweet
       
       if let tweetType = tweet?.tweetType {
         switch tweetType {
@@ -38,8 +38,6 @@ class TweetTableViewCell: UITableViewCell {
         case .Retweet:
           retweetStatusViewHeightConstraint.constant = 20
           retweetStatusView.hidden = false
-          let retweet = tweet as! Retweet
-          retweetedByLabel.text = "\(retweet.retweetedBy?.name ?? "Unknown") Retweeted"
         }
       }
     }
