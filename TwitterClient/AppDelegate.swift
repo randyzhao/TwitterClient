@@ -38,8 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       let hvc = HamburgerViewController()
       initialViewController = hvc
       let mvc = SideoutMenuViewController()
-      hvc.menuViewController = mvc
       mvc.hamburgerViewController = hvc
+      hvc.menuViewController = mvc
     } else {
       print("There is no current user")
       initialViewController = LoginViewController()

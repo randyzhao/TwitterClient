@@ -26,6 +26,8 @@ class SideoutMenuViewController: UIViewController, UITableViewDelegate, UITableV
       ProfileViewController(),
       TweetsViewController(),
     ]
+    
+    hamburgerViewController.contentViewController = viewControllers[1]
     // Do any additional setup after loading the view.
   }
   
@@ -47,6 +49,8 @@ class SideoutMenuViewController: UIViewController, UITableViewDelegate, UITableV
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    hamburgerViewController.contentViewController = viewControllers[indexPath.row]
+    if indexPath.row < viewControllers.count {
+      hamburgerViewController.contentViewController = viewControllers[indexPath.row]
+    }
   }
 }
