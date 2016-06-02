@@ -35,6 +35,8 @@
 		A4FB5FBD1D00E43B006ABBE5 /* SideoutMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FB5FBB1D00E43B006ABBE5 /* SideoutMenuViewController.xib */; };
 		A4FB5FC01D00E5D2006ABBE5 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB5FBE1D00E5D2006ABBE5 /* HamburgerViewController.swift */; };
 		A4FB5FC11D00E5D2006ABBE5 /* HamburgerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FB5FBF1D00E5D2006ABBE5 /* HamburgerViewController.xib */; };
+		A4FB5FC41D00ED4C006ABBE5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB5FC21D00ED4C006ABBE5 /* ProfileViewController.swift */; };
+		A4FB5FC51D00ED4C006ABBE5 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FB5FC31D00ED4C006ABBE5 /* ProfileViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +71,8 @@
 		A4FB5FBB1D00E43B006ABBE5 /* SideoutMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideoutMenuViewController.xib; sourceTree = "<group>"; };
 		A4FB5FBE1D00E5D2006ABBE5 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		A4FB5FBF1D00E5D2006ABBE5 /* HamburgerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HamburgerViewController.xib; sourceTree = "<group>"; };
+		A4FB5FC21D00ED4C006ABBE5 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A4FB5FC31D00ED4C006ABBE5 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		A6F378958ED2DDFE5E69E8CB /* Pods-TwitterClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterClient/Pods-TwitterClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +154,8 @@
 				A4FB5FBB1D00E43B006ABBE5 /* SideoutMenuViewController.xib */,
 				A4FB5FBE1D00E5D2006ABBE5 /* HamburgerViewController.swift */,
 				A4FB5FBF1D00E5D2006ABBE5 /* HamburgerViewController.xib */,
+				A4FB5FC21D00ED4C006ABBE5 /* ProfileViewController.swift */,
+				A4FB5FC31D00ED4C006ABBE5 /* ProfileViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -259,6 +265,7 @@
 				A4FB5F661CFE6280006ABBE5 /* TweetTableViewCell.xib in Resources */,
 				A4FB5FA51CFFAA68006ABBE5 /* RetweetStatusView.xib in Resources */,
 				A4FB5FBD1D00E43B006ABBE5 /* SideoutMenuViewController.xib in Resources */,
+				A4FB5FC51D00ED4C006ABBE5 /* ProfileViewController.xib in Resources */,
 				A4FB5FB91D00D440006ABBE5 /* ButtonsView.xib in Resources */,
 				A4FB5FC11D00E5D2006ABBE5 /* HamburgerViewController.xib in Resources */,
 				A4FB5F521CFE4D9C006ABBE5 /* TweetsViewController.xib in Resources */,
@@ -332,6 +339,7 @@
 				A4FB5FC01D00E5D2006ABBE5 /* HamburgerViewController.swift in Sources */,
 				A4FB5F511CFE4D9C006ABBE5 /* TweetsViewController.swift in Sources */,
 				A4FB5F691CFF434B006ABBE5 /* TweetsViewController+UITableView.swift in Sources */,
+				A4FB5FC41D00ED4C006ABBE5 /* ProfileViewController.swift in Sources */,
 				A4FB5FB01D00A92F006ABBE5 /* TweetDetailsViewController.swift in Sources */,
 				A4FB5FB71D00D434006ABBE5 /* ButtonsView.swift in Sources */,
 				A4FB5FA11CFFA4FB006ABBE5 /* RetweetStatusView.swift in Sources */,

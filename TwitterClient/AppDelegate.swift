@@ -30,21 +30,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow(frame: UIScreen.mainScreen().bounds)
     
     let nvc = UINavigationController()
-    
+    nvc.navigationBar.translucent = false
     let initialViewController: UIViewController
     
     if let currentUser = User.currentUser {
       print("There is a current user: \(currentUser.name)")
-      initialViewController = HamburgerViewController()
+      let hvc = HamburgerViewController()
+      initialViewController = hvc
+      let mvc = SideoutMenuViewController()
+      hvc.menuViewController = mvc
+      mvc.hamburgerViewController = hvc
     } else {
       print("There is no current user")
       initialViewController = LoginViewController()
+      
     }
     
     
     nvc.pushViewController(initialViewController, animated: false)
     window!.rootViewController = nvc
-    
     window!.makeKeyAndVisible()
   }
   

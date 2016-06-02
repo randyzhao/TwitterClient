@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SideoutMenuViewController" customModule="TwitterClient" customModuleProvider="target">
             <connections>
+                <outlet property="menuTableView" destination="BlU-dX-R33" id="Ldn-ZQ-i2W"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

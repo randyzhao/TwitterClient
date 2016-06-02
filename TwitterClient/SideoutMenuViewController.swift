@@ -8,28 +8,45 @@
 
 import UIKit
 
-class SideoutMenuViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+class SideoutMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+  
+  let MenuContents = ["Profile", "Home Timeline", "Mentions"]
+  var viewControllers: [UIViewController]!
+  
+  var hamburgerViewController: HamburgerViewController!
+  
+  @IBOutlet weak var menuTableView: UITableView!
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
+    menuTableView.delegate = self
+    menuTableView.dataSource = self
+    
+    viewControllers = [
+      ProfileViewController(),
+      TweetsViewController(),
+    ]
+    // Do any additional setup after loading the view.
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return MenuContents.count
+  }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = UITableViewCell()
+    cell.textLabel?.text = MenuContents[indexPath.row]
+    return cell
+  }
+  
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    hamburgerViewController.contentViewController = viewControllers[indexPath.row]
+  }
 }

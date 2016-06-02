@@ -7,7 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HamburgerViewController" customModule="TwitterClient" customModuleProvider="target">
             <connections>
+                <outlet property="contentView" destination="ZTC-bz-gqd" id="yLY-M2-oUa"/>
                 <outlet property="contentViewLeftMargin" destination="KLb-q8-Q2R" id="nXD-1U-yIA"/>
+                <outlet property="menuView" destination="rSC-gO-Tx4" id="ysj-gy-xxB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

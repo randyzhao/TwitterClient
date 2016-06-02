@@ -11,7 +11,27 @@ import UIKit
 class HamburgerViewController: UIViewController {
   
   @IBOutlet weak var contentViewLeftMargin: NSLayoutConstraint!
+  @IBOutlet weak var contentView: UIView!
+  @IBOutlet weak var menuView: UIView!
   var originalLeftMargin: CGFloat = 0
+  var menuViewController: UIViewController! {
+    didSet {
+      view.layoutIfNeeded()
+      menuView.addSubview(menuViewController.view)
+    }
+  }
+  
+  var contentViewController: UIViewController! {
+    didSet {
+      view.layoutIfNeeded()
+      contentView.addSubview(contentViewController.view)
+      
+      UIView.animateWithDuration(0.3) { 
+        self.contentViewLeftMargin.constant = 0
+        self.view.layoutIfNeeded()
+      }
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
