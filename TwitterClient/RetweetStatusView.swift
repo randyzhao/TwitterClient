@@ -35,6 +35,5 @@ class RetweetStatusView: UIView {
     let view = NSBundle.mainBundle().loadNibNamed("RetweetStatusView", owner: self, options: nil).first as! UIView
     addSubview(view)
     view.frame.size.height = frame.height
-    //mainView.frame.size.height = 20
   }
 }
