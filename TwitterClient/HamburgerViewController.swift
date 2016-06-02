@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HamburgerViewController: UIViewController {
+class HamburgerViewController: UIViewController{
   
   @IBOutlet weak var contentViewLeftMargin: NSLayoutConstraint!
   @IBOutlet weak var contentView: UIView!

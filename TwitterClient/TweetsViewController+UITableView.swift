@@ -26,6 +26,7 @@ extension TweetsViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let vc = TweetDetailsViewController()
     vc.tweet = tweets[indexPath.row]
-    navigationController?.pushViewController(vc, animated: true)
+    //parentViewController?.navigationController?.pushViewController(vc, animated: true)
+    delegate?.viewController?(pushNewViewController: vc, animated: true)
   }
 }

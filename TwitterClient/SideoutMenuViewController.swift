@@ -22,11 +22,13 @@ class SideoutMenuViewController: UIViewController, UITableViewDelegate, UITableV
     menuTableView.delegate = self
     menuTableView.dataSource = self
     
+    let tvc = TweetsViewController()
+    tvc.delegate = hamburgerViewController
     viewControllers = [
       ProfileViewController(),
-      TweetsViewController(),
+      tvc,
     ]
-    
+
     hamburgerViewController.contentViewController = viewControllers[1]
     // Do any additional setup after loading the view.
   }

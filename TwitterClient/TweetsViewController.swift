@@ -8,10 +8,15 @@
 
 import UIKit
 
+@objc protocol ContainedViewControllerDelegate {
+  optional func viewController(pushNewViewController nvc: UIViewController, animated: Bool)
+}
+
 class TweetsViewController: UIViewController {
   
   @IBOutlet weak var tweetTableView: UITableView!
   var tweets = [Tweet]()
+  var delegate: ContainedViewControllerDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -48,7 +53,7 @@ class TweetsViewController: UIViewController {
   
   func onNewTweetButton() {
     let vc = NewTweetViewController()
-    navigationController?.presentViewController(vc, animated: true, completion: nil)
+    parentViewController?.navigationController?.presentViewController(vc, animated: true, completion: nil)
   }
   /*
    // MARK: - Navigation
