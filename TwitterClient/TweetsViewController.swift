@@ -31,6 +31,9 @@ class TweetsViewController: UIViewController {
       }) { (error) in
         print("error: \(error.localizedDescription)")
     }
+    
+    let newTweetButton = UIBarButtonItem(image: UIImage(named: "new_tweet"), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(onNewTweetButton))
+    navigationItem.rightBarButtonItem = newTweetButton
     // Do any additional setup after loading the view.
   }
   
@@ -41,6 +44,11 @@ class TweetsViewController: UIViewController {
   
   func onLogoutButton() {
     TwitterClient.sharedInstance.logout()
+  }
+  
+  func onNewTweetButton() {
+    let vc = NewTweetViewController()
+    navigationController?.presentViewController(vc, animated: true, completion: nil)
   }
   /*
    // MARK: - Navigation

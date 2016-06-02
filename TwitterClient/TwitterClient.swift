@@ -10,7 +10,11 @@ import Foundation
 import BDBOAuth1Manager
 
 class TwitterClient: BDBOAuth1SessionManager {
-  static let sharedInstance = TwitterClient(baseURL: NSURL(string: "https://api.twitter.com")!, consumerKey: "O7nUPAjghP7CsDjKp9DCtfhgi", consumerSecret: "7qW6FFx3YybObsSrmYDQqUbHIdgdue2TE7JcSWUszCiaYdU2y8")
+  static var sharedInstance: TwitterClient {
+    let client = TwitterClient(baseURL: NSURL(string: "https://api.twitter.com")!, consumerKey: "O7nUPAjghP7CsDjKp9DCtfhgi", consumerSecret: "7qW6FFx3YybObsSrmYDQqUbHIdgdue2TE7JcSWUszCiaYdU2y8")
+    print("Authorized: \(client.authorized)")
+    return client
+  }
   
   var loginSuccess: (() -> Void)?
   var loginFailure: ((NSError) -> Void)?
@@ -34,6 +38,15 @@ class TwitterClient: BDBOAuth1SessionManager {
     }, failure: { (task: NSURLSessionDataTask?, error: NSError) in
         failure(error)
     })
+  }
+  
+  
+  func newTweet(status: String, success: () -> (), failure: (NSError) -> ()) {
+    POST("1.1/statuses/update.json", parameters: ["status": status], progress: nil, success: { (_: NSURLSessionDataTask, _: AnyObject?) in
+      success()
+    }) { (_: NSURLSessionDataTask?, error: NSError) in
+        failure(error)
+    }
   }
   
   func login(success: () -> Void, failure: (NSError) -> Void) {

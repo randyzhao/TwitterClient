@@ -11,6 +11,7 @@ import UIKit
 class TweetContentView: UIView {
 
   @IBOutlet weak var tweetTextLabel: UILabel!
+  @IBOutlet var mainView: UIView!
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -42,5 +43,9 @@ class TweetContentView: UIView {
     tweetTextLabel.preferredMaxLayoutWidth = frame.size.width
     tweetTextLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
     tweetTextLabel.sizeToFit()
+  }
+  
+  override func intrinsicContentSize() -> CGSize {
+    return CGSize(width: UIViewNoIntrinsicMetric, height: mainView.frame.height)
   }
 }

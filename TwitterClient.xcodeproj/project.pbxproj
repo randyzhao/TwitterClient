@@ -27,6 +27,10 @@
 		A4FB5FAD1D009AE1006ABBE5 /* TweetContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FB5FAC1D009AE1006ABBE5 /* TweetContentView.xib */; };
 		A4FB5FB01D00A92F006ABBE5 /* TweetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB5FAE1D00A92F006ABBE5 /* TweetDetailsViewController.swift */; };
 		A4FB5FB11D00A92F006ABBE5 /* TweetDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FB5FAF1D00A92F006ABBE5 /* TweetDetailsViewController.xib */; };
+		A4FB5FB41D00ADDE006ABBE5 /* NewTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB5FB21D00ADDE006ABBE5 /* NewTweetViewController.swift */; };
+		A4FB5FB51D00ADDE006ABBE5 /* NewTweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FB5FB31D00ADDE006ABBE5 /* NewTweetViewController.xib */; };
+		A4FB5FB71D00D434006ABBE5 /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB5FB61D00D434006ABBE5 /* ButtonsView.swift */; };
+		A4FB5FB91D00D440006ABBE5 /* ButtonsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FB5FB81D00D43F006ABBE5 /* ButtonsView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +57,10 @@
 		A4FB5FAC1D009AE1006ABBE5 /* TweetContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetContentView.xib; sourceTree = "<group>"; };
 		A4FB5FAE1D00A92F006ABBE5 /* TweetDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailsViewController.swift; sourceTree = "<group>"; };
 		A4FB5FAF1D00A92F006ABBE5 /* TweetDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetDetailsViewController.xib; sourceTree = "<group>"; };
+		A4FB5FB21D00ADDE006ABBE5 /* NewTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTweetViewController.swift; sourceTree = "<group>"; };
+		A4FB5FB31D00ADDE006ABBE5 /* NewTweetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewTweetViewController.xib; sourceTree = "<group>"; };
+		A4FB5FB61D00D434006ABBE5 /* ButtonsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
+		A4FB5FB81D00D43F006ABBE5 /* ButtonsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonsView.xib; sourceTree = "<group>"; };
 		A6F378958ED2DDFE5E69E8CB /* Pods-TwitterClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterClient/Pods-TwitterClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +136,8 @@
 				A4FB5F501CFE4D9C006ABBE5 /* TweetsViewController.xib */,
 				A4FB5FAE1D00A92F006ABBE5 /* TweetDetailsViewController.swift */,
 				A4FB5FAF1D00A92F006ABBE5 /* TweetDetailsViewController.xib */,
+				A4FB5FB21D00ADDE006ABBE5 /* NewTweetViewController.swift */,
+				A4FB5FB31D00ADDE006ABBE5 /* NewTweetViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -158,6 +168,8 @@
 				A4FB5FA41CFFAA68006ABBE5 /* RetweetStatusView.xib */,
 				A4FB5FAA1D009AD7006ABBE5 /* TweetContentView.swift */,
 				A4FB5FAC1D009AE1006ABBE5 /* TweetContentView.xib */,
+				A4FB5FB61D00D434006ABBE5 /* ButtonsView.swift */,
+				A4FB5FB81D00D43F006ABBE5 /* ButtonsView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -234,7 +246,9 @@
 			files = (
 				A4FB5F661CFE6280006ABBE5 /* TweetTableViewCell.xib in Resources */,
 				A4FB5FA51CFFAA68006ABBE5 /* RetweetStatusView.xib in Resources */,
+				A4FB5FB91D00D440006ABBE5 /* ButtonsView.xib in Resources */,
 				A4FB5F521CFE4D9C006ABBE5 /* TweetsViewController.xib in Resources */,
+				A4FB5FB51D00ADDE006ABBE5 /* NewTweetViewController.xib in Resources */,
 				A499C9DC1CFE3183003B97E2 /* LaunchScreen.storyboard in Resources */,
 				A4FB5FAD1D009AE1006ABBE5 /* TweetContentView.xib in Resources */,
 				A4FB5FB11D00A92F006ABBE5 /* TweetDetailsViewController.xib in Resources */,
@@ -299,10 +313,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A499C9EF1CFE41AB003B97E2 /* TwitterClient.swift in Sources */,
+				A4FB5FB41D00ADDE006ABBE5 /* NewTweetViewController.swift in Sources */,
 				A499C9E61CFE32BD003B97E2 /* LoginViewController.swift in Sources */,
 				A4FB5F511CFE4D9C006ABBE5 /* TweetsViewController.swift in Sources */,
 				A4FB5F691CFF434B006ABBE5 /* TweetsViewController+UITableView.swift in Sources */,
 				A4FB5FB01D00A92F006ABBE5 /* TweetDetailsViewController.swift in Sources */,
+				A4FB5FB71D00D434006ABBE5 /* ButtonsView.swift in Sources */,
 				A4FB5FA11CFFA4FB006ABBE5 /* RetweetStatusView.swift in Sources */,
 				A499C9D21CFE3183003B97E2 /* AppDelegate.swift in Sources */,
 				A4FB5FAB1D009AD7006ABBE5 /* TweetContentView.swift in Sources */,

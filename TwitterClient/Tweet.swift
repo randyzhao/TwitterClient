@@ -40,7 +40,7 @@ class TweetHelper {
     }
     var tweets = [Tweet]()
     let json = JSON(data)
-    dump(json)
+    //dump(json)
     for (_, subJSON): (String, JSON) in json {
       tweets.append(tweetFromJSON(subJSON))
     }
