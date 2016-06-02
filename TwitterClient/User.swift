@@ -13,6 +13,7 @@ class User {
   var name: String?
   var screenname: String?
   var profileUrl: NSURL?
+  var profileBannerUrl: NSURL?
   var tagline: String?
   
   var originalDictionary: NSDictionary?
@@ -37,6 +38,9 @@ class User {
     screenname = json["screenname"].string
     if let profileUrlString = json["profile_image_url_https"].string {
       profileUrl = NSURL(string: profileUrlString)
+    }
+    if let profileBannerUrlString = json["profile_banner_url"].string {
+      profileBannerUrl = NSURL(string: profileBannerUrlString + "_normal.jpg")
     }
     tagline = json["description"].string
     originalDictionary = json.dictionaryObject

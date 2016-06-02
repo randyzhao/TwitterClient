@@ -38,6 +38,8 @@
 		A4FB5FC41D00ED4C006ABBE5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB5FC21D00ED4C006ABBE5 /* ProfileViewController.swift */; };
 		A4FB5FC51D00ED4C006ABBE5 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FB5FC31D00ED4C006ABBE5 /* ProfileViewController.xib */; };
 		A4FB5FC81D00F73B006ABBE5 /* HamburgerViewController+ContainedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB5FC71D00F73B006ABBE5 /* HamburgerViewController+ContainedViewController.swift */; };
+		A4FB5FCA1D00F864006ABBE5 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB5FC91D00F864006ABBE5 /* ProfileHeaderView.swift */; };
+		A4FB5FCC1D00F86E006ABBE5 /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FB5FCB1D00F86E006ABBE5 /* ProfileHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +77,8 @@
 		A4FB5FC21D00ED4C006ABBE5 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A4FB5FC31D00ED4C006ABBE5 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		A4FB5FC71D00F73B006ABBE5 /* HamburgerViewController+ContainedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HamburgerViewController+ContainedViewController.swift"; sourceTree = "<group>"; };
+		A4FB5FC91D00F864006ABBE5 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		A4FB5FCB1D00F86E006ABBE5 /* ProfileHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileHeaderView.xib; sourceTree = "<group>"; };
 		A6F378958ED2DDFE5E69E8CB /* Pods-TwitterClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterClient/Pods-TwitterClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +195,8 @@
 				A4FB5FAC1D009AE1006ABBE5 /* TweetContentView.xib */,
 				A4FB5FB61D00D434006ABBE5 /* ButtonsView.swift */,
 				A4FB5FB81D00D43F006ABBE5 /* ButtonsView.xib */,
+				A4FB5FC91D00F864006ABBE5 /* ProfileHeaderView.swift */,
+				A4FB5FCB1D00F86E006ABBE5 /* ProfileHeaderView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -278,6 +284,7 @@
 				A4FB5FBD1D00E43B006ABBE5 /* SideoutMenuViewController.xib in Resources */,
 				A4FB5FC51D00ED4C006ABBE5 /* ProfileViewController.xib in Resources */,
 				A4FB5FB91D00D440006ABBE5 /* ButtonsView.xib in Resources */,
+				A4FB5FCC1D00F86E006ABBE5 /* ProfileHeaderView.xib in Resources */,
 				A4FB5FC11D00E5D2006ABBE5 /* HamburgerViewController.xib in Resources */,
 				A4FB5F521CFE4D9C006ABBE5 /* TweetsViewController.xib in Resources */,
 				A4FB5FB51D00ADDE006ABBE5 /* NewTweetViewController.xib in Resources */,
@@ -357,6 +364,7 @@
 				A4FB5FA11CFFA4FB006ABBE5 /* RetweetStatusView.swift in Sources */,
 				A499C9D21CFE3183003B97E2 /* AppDelegate.swift in Sources */,
 				A4FB5FAB1D009AD7006ABBE5 /* TweetContentView.swift in Sources */,
+				A4FB5FCA1D00F864006ABBE5 /* ProfileHeaderView.swift in Sources */,
 				A499C9EB1CFE3D07003B97E2 /* User.swift in Sources */,
 				A499C9ED1CFE3D10003B97E2 /* Tweet.swift in Sources */,
 				A4FB5F651CFE6280006ABBE5 /* TweetTableViewCell.swift in Sources */,

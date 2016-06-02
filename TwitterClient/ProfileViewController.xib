@@ -2,11 +2,12 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10117"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="TwitterClient" customModuleProvider="target">
             <connections>
+                <outlet property="profileHeaderView" destination="pIK-VL-aqJ" id="U3b-g2-lhW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,7 +15,21 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="0.20241009500000001" green="0.98888924320000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIK-VL-aqJ" customClass="ProfileHeaderView" customModule="TwitterClient" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="170"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="170" id="EA6-Nj-Rd6"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="pIK-VL-aqJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3I0-XL-5xN"/>
+                <constraint firstItem="pIK-VL-aqJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qev-je-1ou"/>
+                <constraint firstAttribute="trailing" secondItem="pIK-VL-aqJ" secondAttribute="trailing" id="uPA-ny-TF0"/>
+            </constraints>
         </view>
     </objects>
 </document>
