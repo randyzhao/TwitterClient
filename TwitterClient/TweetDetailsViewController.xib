@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TweetDetailsViewController" customModule="TwitterClient" customModuleProvider="target">
             <connections>
+                <outlet property="buttonsView" destination="c1q-d4-Dic" id="laG-r6-fXO"/>
                 <outlet property="profileImageView" destination="VGM-8J-cBw" id="2bD-ZC-zIN"/>
                 <outlet property="tweetContentView" destination="2Y8-hc-dbt" id="aJd-PS-wg8"/>
                 <outlet property="usernameLabel" destination="JYW-Vr-M07" id="6d1-Il-Gan"/>
@@ -33,21 +34,41 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Y8-hc-dbt" customClass="TweetContentView" customModule="TwitterClient" customModuleProvider="target">
-                    <rect key="frame" x="16" y="72" width="568" height="520"/>
+                    <rect key="frame" x="16" y="72" width="568" height="200"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="97Y-4t-jsj"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1q-d4-Dic" customClass="ButtonsView" customModule="TwitterClient" customModuleProvider="target">
+                    <rect key="frame" x="8" y="272" width="576" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="sfv-c9-sdK"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="JYW-Vr-M07" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="BCN-pE-zac"/>
                 <constraint firstAttribute="bottomMargin" secondItem="2Y8-hc-dbt" secondAttribute="bottom" id="BgC-X9-9xI"/>
+                <constraint firstItem="c1q-d4-Dic" firstAttribute="top" secondItem="2Y8-hc-dbt" secondAttribute="bottom" id="QKv-oN-zhP"/>
+                <constraint firstAttribute="trailingMargin" secondItem="c1q-d4-Dic" secondAttribute="trailing" constant="8" id="dBb-7j-9ai"/>
                 <constraint firstItem="VGM-8J-cBw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="exD-R8-OzX"/>
+                <constraint firstItem="c1q-d4-Dic" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="hbB-lC-Uvb"/>
                 <constraint firstAttribute="trailingMargin" secondItem="2Y8-hc-dbt" secondAttribute="trailing" constant="8" id="l5Q-OH-U4O"/>
                 <constraint firstItem="VGM-8J-cBw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="nHY-xP-i3l"/>
                 <constraint firstItem="2Y8-hc-dbt" firstAttribute="top" secondItem="VGM-8J-cBw" secondAttribute="bottom" constant="8" id="nVJ-ks-EGd"/>
+                <constraint firstAttribute="bottomMargin" secondItem="c1q-d4-Dic" secondAttribute="bottom" id="q0k-Wg-GFn"/>
                 <constraint firstItem="2Y8-hc-dbt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" constant="8" id="sIc-M4-Ujj"/>
                 <constraint firstItem="JYW-Vr-M07" firstAttribute="leading" secondItem="VGM-8J-cBw" secondAttribute="trailing" constant="8" id="vPn-C7-kvK"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="BgC-X9-9xI"/>
+                    <exclude reference="q0k-Wg-GFn"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>

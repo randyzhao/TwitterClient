@@ -10,6 +10,7 @@ import UIKit
 
 class TweetDetailsViewController: UIViewController {
   
+  @IBOutlet weak var buttonsView: ButtonsView!
   @IBOutlet weak var profileImageView: UIImageView!
   @IBOutlet weak var usernameLabel: UILabel!
   @IBOutlet weak var tweetContentView: TweetContentView!
@@ -21,6 +22,7 @@ class TweetDetailsViewController: UIViewController {
     }
     usernameLabel.text = tweet?.user?.name
     tweetContentView.tweet = tweet
+    buttonsView.tweet = tweet
   }
   
   override func viewDidLoad() {

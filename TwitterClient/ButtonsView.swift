@@ -9,13 +9,35 @@
 import UIKit
 
 class ButtonsView: UIView {
-
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
+  
+  @IBOutlet weak var retweetCountLabel: UILabel!
+  @IBOutlet weak var favoritesCountLabel: UILabel!
+  
+  var tweet: Tweet? {
+    didSet {
+      retweetCountLabel.text = String(tweet?.retweetCount ?? 0)
+      favoritesCountLabel.text = String(tweet?.favoritesCount ?? 0)
     }
-    */
-
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    nibSetup()
+  }
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    nibSetup()
+    
+  }
+  
+  private func nibSetup() {
+    let view = NSBundle.mainBundle().loadNibNamed("ButtonsView", owner: self, options: nil).first as! UIView
+    addSubview(view)
+    view.frame.size = frame.size
+  }
+  
+  override func intrinsicContentSize() -> CGSize {
+    return CGSize(width: UIViewNoIntrinsicMetric, height: 30)
+  }
 }

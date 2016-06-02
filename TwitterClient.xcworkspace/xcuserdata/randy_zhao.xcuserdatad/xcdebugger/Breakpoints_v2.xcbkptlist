@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterClient/TweetTableViewCell.swift"
-            timestampString = "486579850.184165"
+            timestampString = "486594333.782122"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "calcTimestampDiff(_:)"
             landmarkType = "5">
          </BreakpointContent>

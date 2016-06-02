@@ -14,10 +14,9 @@ class TweetTableViewCell: UITableViewCell {
   @IBOutlet weak var retweetStatusViewHeightConstraint: NSLayoutConstraint!
   @IBOutlet weak var usernameLabel: UILabel!
   @IBOutlet weak var profileImageView: UIImageView!
-  @IBOutlet weak var retweetCountLabel: UILabel!
-  @IBOutlet weak var loveCountLabel: UILabel!
   @IBOutlet weak var timestampDiffLabel: UILabel!
   @IBOutlet weak var tweetContentView: TweetContentView!
+  @IBOutlet weak var buttonsView: ButtonsView!
   
   var tweet: Tweet? {
     didSet {
@@ -26,8 +25,7 @@ class TweetTableViewCell: UITableViewCell {
       if let profileUrl = tweet?.user?.profileUrl {
         profileImageView.setImageWithURL(profileUrl)
       }
-      retweetCountLabel.text = String(tweet?.retweetCount ?? 0)
-      loveCountLabel.text = String(tweet?.favoritesCount ?? 0)
+      buttonsView.tweet = tweet
       timestampDiffLabel.text = calcTimestampDiff(tweet?.timestamp)
       retweetStatusView.tweet = tweet
       tweetContentView.tweet = tweet
