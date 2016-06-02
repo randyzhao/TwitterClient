@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     if let currentUser = User.currentUser {
       print("There is a current user: \(currentUser.name)")
-      initialViewController = TweetsViewController()
+      initialViewController = HamburgerViewController()
     } else {
       print("There is no current user")
       initialViewController = LoginViewController()
