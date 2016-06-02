@@ -22,4 +22,10 @@ extension TweetsViewController: UITableViewDelegate, UITableViewDataSource {
     cell.tweet = tweets[indexPath.row]
     return cell
   }
+  
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    let vc = TweetDetailsViewController()
+    vc.tweet = tweets[indexPath.row]
+    navigationController?.pushViewController(vc, animated: true)
+  }
 }
