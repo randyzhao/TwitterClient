@@ -9,9 +9,9 @@
 import UIKit
 
 protocol ButtonsViewDelegate {
-  func buttonsView(retweeted tweet: Tweet)
-  func buttonsView(userReplied user: User)
-  func buttonsView(tweetLoved tweet: Tweet)
+  func buttonsView(buttonsView: ButtonsView, retweeted tweet: Tweet, success: (() -> ())?, failure: ((NSError) -> ())?)
+  func buttonsView(buttonsView: ButtonsView, userReplied user: User, success: (() -> ())?, failure: ((NSError) -> ())?)
+  func buttonsView(buttonsView: ButtonsView, tweetLoved tweet: Tweet, success: (() -> ())?, failure: ((NSError) -> ())?)
 }
 
 class ButtonsView: UIView {
@@ -27,13 +27,7 @@ class ButtonsView: UIView {
   
   var tweet: Tweet? {
     didSet {
-      retweetCountLabel.text = String(tweet?.retweetCount ?? 0)
-      favoritesCountLabel.text = String(tweet?.favoritesCount ?? 0)
-      if retweetImageView.gestureRecognizers == nil{
-        let tap = UITapGestureRecognizer(target: self, action: #selector(onRetweet))
-        retweetImageView.addGestureRecognizer(tap)
-      }
-      
+      refreshContent()
     }
   }
   
@@ -46,6 +40,22 @@ class ButtonsView: UIView {
     super.init(frame: frame)
     nibSetup()
     
+  }
+  func refreshContent() {
+    if tweet != nil {
+      if tweet?.retweeted == true {
+        retweetImageView.image = UIImage(named: "retweeted")
+      } else {
+        retweetImageView.image = UIImage(named: "retweet")
+      }
+      
+      retweetCountLabel.text = String(tweet?.retweetCount ?? 0)
+      favoritesCountLabel.text = String(tweet?.favoritesCount ?? 0)
+      if retweetImageView.gestureRecognizers == nil{
+        let tap = UITapGestureRecognizer(target: self, action: #selector(onRetweet))
+        retweetImageView.addGestureRecognizer(tap)
+      }
+    }
   }
   
   private func nibSetup() {
@@ -60,19 +70,23 @@ class ButtonsView: UIView {
   
   func onReply() {
     if let user = tweet?.user {
-      delegate?.buttonsView(userReplied: user)
+      delegate?.buttonsView(self, userReplied: user, success: nil, failure: nil)
     }
   }
   
   func onRetweet() {
     if tweet != nil {
-      delegate?.buttonsView(retweeted: tweet!)
+      delegate?.buttonsView(self, retweeted: tweet!, success: {
+        () -> () in
+        self.tweet?.retweeted = true
+        self.refreshContent()
+      }, failure: nil)
     }
   }
   
   func onLove() {
     if tweet != nil {
-      delegate?.buttonsView(tweetLoved: tweet!)
+      delegate?.buttonsView(self, tweetLoved: tweet!, success: nil, failure: nil)
     }
   }
 }

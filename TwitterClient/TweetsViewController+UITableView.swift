@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension TweetsViewController: UITableViewDelegate, UITableViewDataSource, ButtonsViewDelegate {
+extension TweetsViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return tweets.count
   }
@@ -30,21 +30,5 @@ extension TweetsViewController: UITableViewDelegate, UITableViewDataSource, Butt
     vc.tweet = tweets[indexPath.row]
     //parentViewController?.navigationController?.pushViewController(vc, animated: true)
     delegate?.viewController?(pushNewViewController: vc, animated: true)
-  }
-  
-  func buttonsView(retweeted tweet: Tweet) {
-    TwitterClient.sharedInstance.retweet(tweet, success: { 
-      print("retweet \(tweet.id!) success")
-    }) { (error: NSError) in
-      print("retweet \(tweet.id!) failed")
-    }
-  }
-  
-  func buttonsView(userReplied user: User) {
-    
-  }
-  
-  func buttonsView(tweetLoved tweet: Tweet) {
-    
   }
 }
