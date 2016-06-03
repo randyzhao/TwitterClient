@@ -26,7 +26,6 @@ class TweetTableViewCell: UITableViewCell {
   
   var tweet: Tweet? {
     didSet {
-      //tweetTextLabel.text = tweet?.text
       usernameLabel.text = tweet?.user?.name
       if let profileUrl = tweet?.user?.profileUrl {
         profileImageView.setImageWithURL(profileUrl)

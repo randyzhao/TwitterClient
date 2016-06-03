@@ -10,7 +10,7 @@ import UIKit
 
 class NewTweetViewController: UIViewController {
   
-  @IBOutlet weak var tweetTextField: UITextField!
+  @IBOutlet weak var tweetTextView: UITextView!
   @IBOutlet weak var profileImageView: UIImageView!
   @IBOutlet weak var closeButton: UIButton!
   
@@ -27,8 +27,8 @@ class NewTweetViewController: UIViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    
     refreshContent()
+    tweetTextView.becomeFirstResponder()
   }
   
   func refreshContent() {
@@ -36,7 +36,7 @@ class NewTweetViewController: UIViewController {
       profileImageView.setImageWithURL(url)
     }
     if inReplyTo != nil {
-      tweetTextField.text = "@\(inReplyTo?.user?.screenName ?? "unknown_screen_name") "
+      tweetTextView.text = "@\(inReplyTo?.user?.screenName ?? "unknown_screen_name") "
     }
   }
 
@@ -45,7 +45,7 @@ class NewTweetViewController: UIViewController {
   }
   
   @IBAction func onTweet(sender: AnyObject) {
-    if let text = tweetTextField.text where text != "" {
+    if let text = tweetTextView.text where text != "" {
       TwitterClient.sharedInstance.newTweet(text, inReplyTo: inReplyTo, success: {
         print("tweeted successfully")
         self.dismissViewControllerAnimated(true, completion: nil)

@@ -3,14 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewTweetViewController" customModule="TwitterClient" customModuleProvider="target">
             <connections>
                 <outlet property="closeButton" destination="nU1-Jv-xA2" id="mCQ-Lg-amM"/>
                 <outlet property="profileImageView" destination="Xap-3N-kII" id="p1Z-be-vKe"/>
-                <outlet property="tweetTextField" destination="avk-4b-xQx" id="PTB-QQ-5fu"/>
+                <outlet property="tweetTextView" destination="0tX-t3-OIS" id="iSR-aB-Sjt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,11 +29,6 @@
                         <action selector="onCloseButton:" destination="-1" eventType="touchUpInside" id="SNM-kx-6T7"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's happening" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="avk-4b-xQx">
-                    <rect key="frame" x="8" y="86" width="576" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ikh-gs-Uu0">
                     <rect key="frame" x="506" y="30" width="46" height="30"/>
                     <constraints>
@@ -53,20 +47,41 @@
                         <constraint firstAttribute="width" constant="48" id="45J-d1-eOd"/>
                     </constraints>
                 </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0tX-t3-OIS">
+                    <rect key="frame" x="8" y="115" width="584" height="475"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's happening: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5f-SI-wwz">
+                    <rect key="frame" x="8" y="86" width="148" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="nU1-Jv-xA2" secondAttribute="trailing" constant="8" id="0zr-4a-uxX"/>
-                <constraint firstItem="avk-4b-xQx" firstAttribute="top" secondItem="Xap-3N-kII" secondAttribute="bottom" constant="8" id="APd-T9-I3C"/>
+                <constraint firstItem="0tX-t3-OIS" firstAttribute="top" secondItem="Xap-3N-kII" secondAttribute="bottom" constant="16" id="LVe-0X-LTN"/>
+                <constraint firstItem="0tX-t3-OIS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="MIP-uy-NZI"/>
                 <constraint firstItem="nU1-Jv-xA2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="Qo4-ku-elR"/>
-                <constraint firstItem="avk-4b-xQx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="TOp-xa-HXE"/>
-                <constraint firstAttribute="trailingMargin" secondItem="avk-4b-xQx" secondAttribute="trailing" constant="8" id="Vw0-cP-D4p"/>
                 <constraint firstItem="nU1-Jv-xA2" firstAttribute="leading" secondItem="Ikh-gs-Uu0" secondAttribute="trailing" constant="16" id="aC5-30-lVa"/>
                 <constraint firstItem="Ikh-gs-Uu0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="akT-T4-RGd"/>
+                <constraint firstAttribute="trailing" secondItem="0tX-t3-OIS" secondAttribute="trailing" constant="8" id="ghQ-Je-WZA"/>
+                <constraint firstItem="0tX-t3-OIS" firstAttribute="top" secondItem="V5f-SI-wwz" secondAttribute="bottom" constant="8" id="mTK-CE-4px"/>
                 <constraint firstItem="Xap-3N-kII" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="nEB-qN-5PZ"/>
+                <constraint firstAttribute="bottom" secondItem="0tX-t3-OIS" secondAttribute="bottom" constant="10" id="otv-Pi-yeJ"/>
+                <constraint firstItem="V5f-SI-wwz" firstAttribute="top" secondItem="Xap-3N-kII" secondAttribute="bottom" constant="8" id="u7e-Ca-eWu"/>
                 <constraint firstItem="Xap-3N-kII" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="wVz-Ut-08K"/>
+                <constraint firstItem="V5f-SI-wwz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="wWz-ob-I8v"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="LVe-0X-LTN"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="408" y="495"/>
         </view>
     </objects>
