@@ -18,13 +18,13 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4XP-vi-3QA">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="100" id="Bzs-0w-AXO"/>
+                        <constraint firstAttribute="height" constant="150" id="Bzs-0w-AXO"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oNI-cJ-MQL">
-                    <rect key="frame" x="24" y="72" width="56" height="56"/>
+                    <rect key="frame" x="24" y="132" width="56" height="56"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W3q-WN-GRN">
                             <rect key="frame" x="4" y="4" width="48" height="48"/>
@@ -43,7 +43,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B42-QB-SCI">
-                    <rect key="frame" x="24" y="136" width="84" height="21"/>
+                    <rect key="frame" x="24" y="196" width="84" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -56,7 +56,7 @@
                 <constraint firstItem="4XP-vi-3QA" firstAttribute="leading" secondItem="hrZ-ys-2xu" secondAttribute="leading" id="Tz5-n9-9ht"/>
                 <constraint firstItem="B42-QB-SCI" firstAttribute="top" secondItem="oNI-cJ-MQL" secondAttribute="bottom" constant="8" id="Y7T-VG-bvH"/>
                 <constraint firstItem="B42-QB-SCI" firstAttribute="leading" secondItem="oNI-cJ-MQL" secondAttribute="leading" id="q9H-qp-CDB"/>
-                <constraint firstItem="oNI-cJ-MQL" firstAttribute="top" secondItem="hrZ-ys-2xu" secondAttribute="top" constant="72" id="yDh-Mn-PAj"/>
+                <constraint firstItem="oNI-cJ-MQL" firstAttribute="top" secondItem="hrZ-ys-2xu" secondAttribute="top" constant="132" id="yDh-Mn-PAj"/>
                 <constraint firstItem="oNI-cJ-MQL" firstAttribute="leading" secondItem="hrZ-ys-2xu" secondAttribute="leading" constant="24" id="yIX-ws-GAe"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

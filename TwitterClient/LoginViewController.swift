@@ -25,7 +25,12 @@ class LoginViewController: UIViewController {
   @IBAction func onLoginButton(sender: AnyObject) {
     TwitterClient.sharedInstance.login({ 
       print("I have logged in")
-      self.navigationController?.pushViewController(TweetsViewController(), animated: true)
+      //self.navigationController?.pushViewController(TweetsViewController(), animated: true)
+      let hvc = HamburgerViewController()
+      let mvc = SideoutMenuViewController()
+      mvc.hamburgerViewController = hvc
+      hvc.menuViewController = mvc
+      self.navigationController?.pushViewController(hvc, animated: true)
     }) { (error: NSError) in
       print("error: \(error.localizedDescription)")
     }

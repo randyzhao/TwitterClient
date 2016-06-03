@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol TweetTableCellDelegate {
+  func tweetTableCell(userSelected user: User)
+}
+
 class TweetTableViewCell: UITableViewCell {
   
   @IBOutlet weak var retweetStatusView: RetweetStatusView!
@@ -17,6 +21,8 @@ class TweetTableViewCell: UITableViewCell {
   @IBOutlet weak var timestampDiffLabel: UILabel!
   @IBOutlet weak var tweetContentView: TweetContentView!
   @IBOutlet weak var buttonsView: ButtonsView!
+  
+  var delegate: TweetTableCellDelegate?
   
   var tweet: Tweet? {
     didSet {
@@ -40,6 +46,15 @@ class TweetTableViewCell: UITableViewCell {
           retweetStatusView.hidden = false
         }
       }
+      profileImageView?.gestureRecognizers?.removeAll()
+      let tap = UITapGestureRecognizer(target: self, action: #selector(userSelected))
+      profileImageView?.addGestureRecognizer(tap)
+    }
+  }
+  
+  func userSelected() {
+    if let user = tweet?.user {
+      delegate?.tweetTableCell(userSelected: user)
     }
   }
   

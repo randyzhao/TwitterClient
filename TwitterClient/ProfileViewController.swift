@@ -8,9 +8,12 @@
 
 import UIKit
 
+
+
 class ProfileViewController: UIViewController {
   
   @IBOutlet weak var profileHeaderView: ProfileHeaderView!
+  
   var user: User?
   
   private func setup() {
@@ -24,6 +27,7 @@ class ProfileViewController: UIViewController {
   
   override func viewWillAppear(animated: Bool) {
     setup()
+    
   }
   
   override func didReceiveMemoryWarning() {

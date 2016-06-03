@@ -17,14 +17,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIK-VL-aqJ" customClass="ProfileHeaderView" customModule="TwitterClient" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="170"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="220"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="170" id="EA6-Nj-Rd6"/>
+                        <constraint firstAttribute="height" constant="220" id="EA6-Nj-Rd6"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="pIK-VL-aqJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3I0-XL-5xN"/>
                 <constraint firstItem="pIK-VL-aqJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qev-je-1ou"/>

@@ -40,7 +40,7 @@ class User {
       profileUrl = NSURL(string: profileUrlString)
     }
     if let profileBannerUrlString = json["profile_banner_url"].string {
-      profileBannerUrl = NSURL(string: profileBannerUrlString + "_normal.jpg")
+      profileBannerUrl = NSURL(string: profileBannerUrlString)
     }
     tagline = json["description"].string
     originalDictionary = json.dictionaryObject

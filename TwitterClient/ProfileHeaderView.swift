@@ -46,6 +46,6 @@ class ProfileHeaderView: UIView {
   }
   
   override func intrinsicContentSize() -> CGSize {
-    return CGSize(width: UIViewNoIntrinsicMetric, height: 170)
+    return CGSize(width: UIViewNoIntrinsicMetric, height: 220)
   }
 }
