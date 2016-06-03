@@ -24,9 +24,12 @@ class SideoutMenuViewController: UIViewController, UITableViewDelegate, UITableV
     
     let pvc = ProfileViewController()
     pvc.user = User.currentUser
+    pvc.containerViewController = hamburgerViewController
     
     let tvc = TweetsViewController()
     tvc.delegate = hamburgerViewController
+    tvc.containerViewController = hamburgerViewController
+    
     viewControllers = [
       pvc,
       tvc,

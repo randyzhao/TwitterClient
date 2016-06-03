@@ -15,9 +15,11 @@ class ProfileViewController: UIViewController {
   @IBOutlet weak var profileHeaderView: ProfileHeaderView!
   
   var user: User?
+  var containerViewController: UIViewController?
   
   private func setup() {
     profileHeaderView.user = user
+    containerViewController?.navigationItem.title = "Profile"
   }
   
   override func viewDidLoad() {

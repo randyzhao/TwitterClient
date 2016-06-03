@@ -17,12 +17,13 @@ class TweetsViewController: UIViewController {
   @IBOutlet weak var tweetTableView: UITableView!
   var tweets = [Tweet]()
   var delegate: ContainedViewControllerDelegate?
+  var containerViewController: UIViewController?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    navigationItem.title = "Home"
-    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(onLogoutButton))
+    containerViewController?.navigationItem.title = "Home"
+    containerViewController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(onLogoutButton))
     
     tweetTableView.registerNib(UINib(nibName: "TweetTableViewCell", bundle: nil), forCellReuseIdentifier: "tweetCell")
     tweetTableView.dataSource = self
@@ -37,8 +38,10 @@ class TweetsViewController: UIViewController {
         print("error: \(error.localizedDescription)")
     }
     
-    let newTweetButton = UIBarButtonItem(image: UIImage(named: "new_tweet"), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(onNewTweetButton))
-    navigationItem.rightBarButtonItem = newTweetButton
+    let icon = UIImage(named: "new_tweet")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+    let newTweetButton = UIBarButtonItem(image: icon, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(onNewTweetButton))
+    containerViewController?.navigationItem.rightBarButtonItem = newTweetButton
+    
     // Do any additional setup after loading the view.
   }
   
@@ -53,7 +56,8 @@ class TweetsViewController: UIViewController {
   
   func onNewTweetButton() {
     let vc = NewTweetViewController()
-    parentViewController?.navigationController?.presentViewController(vc, animated: true, completion: nil)
+    vc.user = User.currentUser
+    containerViewController?.navigationController?.presentViewController(vc, animated: true, completion: nil)
   }
   /*
    // MARK: - Navigation

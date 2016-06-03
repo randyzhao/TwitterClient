@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nU1-Jv-xA2">
-                    <rect key="frame" x="560" y="8" width="24" height="24"/>
+                    <rect key="frame" x="568" y="30" width="24" height="24"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="24" id="ER3-bd-626"/>
                         <constraint firstAttribute="width" constant="24" id="RtO-4J-Y37"/>
@@ -31,12 +31,12 @@
                     </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's happening" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="avk-4b-xQx">
-                    <rect key="frame" x="8" y="64" width="576" height="30"/>
+                    <rect key="frame" x="8" y="86" width="576" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ikh-gs-Uu0">
-                    <rect key="frame" x="506" y="8" width="46" height="30"/>
+                    <rect key="frame" x="506" y="30" width="46" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="46" id="1dG-di-6QN"/>
                         <constraint firstAttribute="height" constant="30" id="md4-Ct-MgH"/>
@@ -47,7 +47,7 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xap-3N-kII">
-                    <rect key="frame" x="8" y="8" width="48" height="48"/>
+                    <rect key="frame" x="8" y="30" width="48" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="0XM-hW-zCe"/>
                         <constraint firstAttribute="width" constant="48" id="45J-d1-eOd"/>
@@ -56,21 +56,21 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailingMargin" secondItem="nU1-Jv-xA2" secondAttribute="trailing" constant="8" id="8r2-zS-jC0"/>
-                <constraint firstItem="Xap-3N-kII" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="9o0-Gb-fvv"/>
+                <constraint firstAttribute="trailing" secondItem="nU1-Jv-xA2" secondAttribute="trailing" constant="8" id="0zr-4a-uxX"/>
                 <constraint firstItem="avk-4b-xQx" firstAttribute="top" secondItem="Xap-3N-kII" secondAttribute="bottom" constant="8" id="APd-T9-I3C"/>
-                <constraint firstItem="Xap-3N-kII" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="DBW-p7-f3x"/>
+                <constraint firstItem="nU1-Jv-xA2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="Qo4-ku-elR"/>
                 <constraint firstItem="avk-4b-xQx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="TOp-xa-HXE"/>
                 <constraint firstAttribute="trailingMargin" secondItem="avk-4b-xQx" secondAttribute="trailing" constant="8" id="Vw0-cP-D4p"/>
-                <constraint firstItem="nU1-Jv-xA2" firstAttribute="leading" secondItem="Ikh-gs-Uu0" secondAttribute="trailing" constant="8" id="aC5-30-lVa"/>
-                <constraint firstItem="Ikh-gs-Uu0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="akT-T4-RGd"/>
-                <constraint firstItem="nU1-Jv-xA2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="pc0-qh-vp3"/>
+                <constraint firstItem="nU1-Jv-xA2" firstAttribute="leading" secondItem="Ikh-gs-Uu0" secondAttribute="trailing" constant="16" id="aC5-30-lVa"/>
+                <constraint firstItem="Ikh-gs-Uu0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="akT-T4-RGd"/>
+                <constraint firstItem="Xap-3N-kII" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="nEB-qN-5PZ"/>
+                <constraint firstItem="Xap-3N-kII" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="wVz-Ut-08K"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <point key="canvasLocation" x="408" y="495"/>
         </view>
     </objects>
     <resources>
-        <image name="close" width="42" height="42"/>
+        <image name="close" width="22" height="22"/>
     </resources>
 </document>

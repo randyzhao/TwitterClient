@@ -13,14 +13,26 @@ class NewTweetViewController: UIViewController {
   @IBOutlet weak var tweetTextField: UITextField!
   @IBOutlet weak var profileImageView: UIImageView!
   @IBOutlet weak var closeButton: UIButton!
+  var user: User?
   override func viewDidLoad() {
     super.viewDidLoad()
-    
   }
-  
+
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    setup()
+  }
+  
+  func setup() {
+    if let url = user?.profileUrl {
+      profileImageView.setImageWithURL(url)
+    }
   }
 
   @IBAction func onCloseButton(sender: AnyObject) {

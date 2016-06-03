@@ -22,7 +22,7 @@ class TwitterClient: BDBOAuth1SessionManager {
   func currentAccount(success: (User) -> Void, failure: (NSError) -> Void) {
     GET("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) in
       let user = User(dictionary: response as! NSDictionary)
-      print("name: \(user.name)")
+      print("name: \(user.name!)")
       success(user)
       }, failure: { (task: NSURLSessionDataTask?, error: NSError) in
         print("error: \(error.localizedDescription)")
@@ -55,7 +55,6 @@ class TwitterClient: BDBOAuth1SessionManager {
     
     fetchRequestTokenWithPath("oauth/request_token", method: "GET", callbackURL: NSURL(string: "rztwitterclient://oauth"), scope: nil, success: { (requestToken: BDBOAuth1Credential!) in
       print("I got a token!")
-      
       let url = NSURL(string: "https://api.twitter.com/oauth/authorize?oauth_token=\(requestToken.token)")!
       UIApplication.sharedApplication().openURL(url)
       
@@ -82,8 +81,6 @@ class TwitterClient: BDBOAuth1SessionManager {
           self.loginFailure?(error)
         }
       )
-      
-      
     }) { (error: NSError!) in
       print("error: \(error.localizedDescription)")
       self.loginFailure?(error)

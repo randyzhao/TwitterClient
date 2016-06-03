@@ -46,7 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
     }
     
-    
     nvc.pushViewController(initialViewController, animated: false)
     window!.rootViewController = nvc
     window!.makeKeyAndVisible()
