@@ -24,6 +24,7 @@ protocol Tweet {
   var user: User? { get }
   var id: String? { get }
   var retweeted: Bool? { get set }
+  var media: Media? { get }
 }
 
 
@@ -62,6 +63,7 @@ class OriginalTweet: Tweet {
   var id: String?
   var retweeted: Bool?
   var screenName: String?
+  var media: Media?
   
   init(json: JSON) {
     text = json["text"].string
@@ -75,6 +77,9 @@ class OriginalTweet: Tweet {
     user = User(json: json["user"])
     id = json["id_str"].string
     retweeted = json["retweeted"].bool
+    if json["entities"]["media"].dictionary != nil {
+      media = Media(json: json["entities"]["media"])
+    }
   }
 }
 
@@ -114,6 +119,10 @@ class Retweet: Tweet {
     } set {
       originalTweet?.retweeted = newValue
     }
+  }
+  
+  var media: Media? {
+    return originalTweet?.media
   }
   
   var retweetedBy: User?
