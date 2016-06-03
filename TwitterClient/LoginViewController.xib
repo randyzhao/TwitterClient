@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="wfR-zZ-L6s">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="wfR-zZ-L6s">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Er8-Rc-gaU">
@@ -34,25 +34,29 @@
                         <action selector="onLoginButton:" destination="-1" eventType="touchUpInside" id="kdP-nY-DrJ"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_logo" translatesAutoresizingMaskIntoConstraints="NO" id="0mH-Ej-IMT">
+                    <rect key="frame" x="263" y="61" width="75" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="TKV-Eq-Hrt"/>
+                        <constraint firstAttribute="width" constant="75" id="wIk-8e-9Lg"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="Er8-Rc-gaU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="109" id="2Nk-NG-xFI"/>
-                <constraint firstItem="Er8-Rc-gaU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="344" id="7bv-Zx-8eY"/>
+                <constraint firstAttribute="bottom" secondItem="wfR-zZ-L6s" secondAttribute="bottom" id="22T-gX-3vv"/>
+                <constraint firstItem="wfR-zZ-L6s" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DFu-oB-38S"/>
                 <constraint firstItem="Er8-Rc-gaU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="KvK-AJ-c2k"/>
-                <constraint firstAttribute="trailing" secondItem="Er8-Rc-gaU" secondAttribute="trailing" constant="120" id="Pzz-5E-d8N"/>
+                <constraint firstItem="wfR-zZ-L6s" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="c9A-3o-crr"/>
                 <constraint firstAttribute="bottom" secondItem="Er8-Rc-gaU" secondAttribute="bottom" multiplier="1.2" id="hzo-bo-XzK"/>
+                <constraint firstAttribute="trailing" secondItem="wfR-zZ-L6s" secondAttribute="trailing" id="i1T-fp-sD8"/>
+                <constraint firstItem="0mH-Ej-IMT" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" multiplier="0.2" constant="1" id="iRG-0P-6US"/>
+                <constraint firstItem="0mH-Ej-IMT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="pRd-0i-SOw"/>
             </constraints>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="2Nk-NG-xFI"/>
-                    <exclude reference="7bv-Zx-8eY"/>
-                    <exclude reference="Pzz-5E-d8N"/>
-                </mask>
-            </variation>
         </view>
     </objects>
     <resources>
         <image name="background" width="1000" height="667"/>
+        <image name="white_logo" width="379" height="308"/>
     </resources>
 </document>

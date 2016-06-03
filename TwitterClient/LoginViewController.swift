@@ -30,7 +30,10 @@ class LoginViewController: UIViewController {
       let mvc = SideoutMenuViewController()
       mvc.hamburgerViewController = hvc
       hvc.menuViewController = mvc
-      self.navigationController?.pushViewController(hvc, animated: true)
+      //self.navigationController?.pushViewController(hvc, animated: true)
+      let nvc = UINavigationController()
+      nvc.pushViewController(hvc, animated: false)
+      UIApplication.sharedApplication().keyWindow?.rootViewController = nvc
     }) { (error: NSError) in
       print("error: \(error.localizedDescription)")
     }

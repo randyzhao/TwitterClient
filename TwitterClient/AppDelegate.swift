@@ -28,26 +28,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func instantiateInitialViewController() {
     window = UIWindow(frame: UIScreen.mainScreen().bounds)
-    
-    let nvc = UINavigationController()
-    nvc.navigationBar.translucent = false
-    let initialViewController: UIViewController
+    var initialViewController: UIViewController!
     
     if let currentUser = User.currentUser {
       print("There is a current user: \(currentUser.name)")
+      let nvc = UINavigationController()
+      nvc.navigationBar.translucent = false
       let hvc = HamburgerViewController()
-      initialViewController = hvc
+      initialViewController = nvc
       let mvc = SideoutMenuViewController()
       mvc.hamburgerViewController = hvc
       hvc.menuViewController = mvc
+      nvc.pushViewController(hvc, animated: false)
     } else {
       print("There is no current user")
       initialViewController = LoginViewController()
-      
     }
     
-    nvc.pushViewController(initialViewController, animated: false)
-    window!.rootViewController = nvc
+    window!.rootViewController = initialViewController
     window!.makeKeyAndVisible()
   }
   

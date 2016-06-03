@@ -17,18 +17,18 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nlv-im-hBo">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="51"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <string key="text">Tweet content goes hereTweet content goes hereTweet content goes hereTweet content goes hereTweet content goes hereTweet content goes hereTweet content goes hereTweet content goes hereTweet content goes here</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Nlv-im-hBo" firstAttribute="leading" secondItem="wkY-NH-T0k" secondAttribute="leading" id="3O7-lb-1eR"/>
                 <constraint firstItem="Nlv-im-hBo" firstAttribute="top" secondItem="wkY-NH-T0k" secondAttribute="top" id="YH4-WJ-7fg"/>
-                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Nlv-im-hBo" secondAttribute="bottom" id="tmY-cl-oGN"/>
+                <constraint firstAttribute="bottom" secondItem="Nlv-im-hBo" secondAttribute="bottom" id="tmY-cl-oGN"/>
                 <constraint firstAttribute="trailing" secondItem="Nlv-im-hBo" secondAttribute="trailing" id="uG0-Bt-0To"/>
             </constraints>
             <point key="canvasLocation" x="315" y="423"/>

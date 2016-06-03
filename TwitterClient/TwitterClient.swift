@@ -9,9 +9,9 @@
 import Foundation
 import BDBOAuth1Manager
 
+private var _sharedInstance = TwitterClient(baseURL: NSURL(string: "https://api.twitter.com")!, consumerKey: "O7nUPAjghP7CsDjKp9DCtfhgi", consumerSecret: "7qW6FFx3YybObsSrmYDQqUbHIdgdue2TE7JcSWUszCiaYdU2y8")
+
 class TwitterClient: BDBOAuth1SessionManager {
-  private static var _sharedInstance = TwitterClient(baseURL: NSURL(string: "https://api.twitter.com")!, consumerKey: "O7nUPAjghP7CsDjKp9DCtfhgi", consumerSecret: "7qW6FFx3YybObsSrmYDQqUbHIdgdue2TE7JcSWUszCiaYdU2y8")
-  
   static var sharedInstance: TwitterClient {
     let client = _sharedInstance
     print("Authorized: \(client.authorized)")

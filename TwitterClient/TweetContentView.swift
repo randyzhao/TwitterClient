@@ -12,13 +12,6 @@ class TweetContentView: UIView {
 
   @IBOutlet weak var tweetTextLabel: UILabel!
   @IBOutlet var mainView: UIView!
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
   var tweet: Tweet? {
     didSet {
       tweetTextLabel.text = tweet?.text
@@ -41,9 +34,5 @@ class TweetContentView: UIView {
     addSubview(view)
     view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
     view.frame = bounds
-  }
-  
-  override func intrinsicContentSize() -> CGSize {
-    return CGSize(width: UIViewNoIntrinsicMetric, height: 300)
   }
 }
