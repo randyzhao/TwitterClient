@@ -10,8 +10,10 @@ import Foundation
 import BDBOAuth1Manager
 
 class TwitterClient: BDBOAuth1SessionManager {
+  private static var _sharedInstance = TwitterClient(baseURL: NSURL(string: "https://api.twitter.com")!, consumerKey: "O7nUPAjghP7CsDjKp9DCtfhgi", consumerSecret: "7qW6FFx3YybObsSrmYDQqUbHIdgdue2TE7JcSWUszCiaYdU2y8")
+  
   static var sharedInstance: TwitterClient {
-    let client = TwitterClient(baseURL: NSURL(string: "https://api.twitter.com")!, consumerKey: "O7nUPAjghP7CsDjKp9DCtfhgi", consumerSecret: "7qW6FFx3YybObsSrmYDQqUbHIdgdue2TE7JcSWUszCiaYdU2y8")
+    let client = _sharedInstance
     print("Authorized: \(client.authorized)")
     return client
   }
@@ -27,15 +29,15 @@ class TwitterClient: BDBOAuth1SessionManager {
       }, failure: { (task: NSURLSessionDataTask?, error: NSError) in
         print("error: \(error.localizedDescription)")
     })
-
+    
   }
   
   func homeTimeline(success: ([Tweet]) -> (), failure: (NSError) -> ()) {
     GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) in
       //let tweets = Tweet.tweetsFromArray(response as! [NSDictionary])
       let tweets = TweetHelper.tweetsFromNetworking(response)
-        success(tweets ?? [])
-    }, failure: { (task: NSURLSessionDataTask?, error: NSError) in
+      success(tweets ?? [])
+      }, failure: { (task: NSURLSessionDataTask?, error: NSError) in
         failure(error)
     })
   }
@@ -45,7 +47,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     POST("1.1/statuses/update.json", parameters: ["status": status], progress: nil, success: { (_: NSURLSessionDataTask, _: AnyObject?) in
       success()
     }) { (_: NSURLSessionDataTask?, error: NSError) in
-        failure(error)
+      failure(error)
     }
   }
   

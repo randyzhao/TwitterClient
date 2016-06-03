@@ -11,9 +11,9 @@ import BDBOAuth1Manager
 
 class LoginViewController: UIViewController {
   
+  @IBOutlet weak var backgroundImageView: UIImageView!
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     // Do any additional setup after loading the view.
   }
   

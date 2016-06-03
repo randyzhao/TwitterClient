@@ -3,10 +3,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="TwitterClient" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundImageView" destination="wfR-zZ-L6s" id="zka-6t-giG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,22 +17,42 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="wfR-zZ-L6s">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Er8-Rc-gaU">
-                    <rect key="frame" x="109" y="344" width="371" height="155"/>
-                    <color key="backgroundColor" red="0.20241009495958473" green="0.98888924321954841" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Login Twitter"/>
+                    <rect key="frame" x="154" y="400" width="292" height="100"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="08f-5K-cLu"/>
+                        <constraint firstAttribute="width" constant="292" id="ZbE-Ab-DwP"/>
+                    </constraints>
+                    <state key="normal" title="Login Twitter">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="onLoginButton:" destination="-1" eventType="touchUpInside" id="kdP-nY-DrJ"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Er8-Rc-gaU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="109" id="2Nk-NG-xFI"/>
                 <constraint firstItem="Er8-Rc-gaU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="344" id="7bv-Zx-8eY"/>
+                <constraint firstItem="Er8-Rc-gaU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="KvK-AJ-c2k"/>
                 <constraint firstAttribute="trailing" secondItem="Er8-Rc-gaU" secondAttribute="trailing" constant="120" id="Pzz-5E-d8N"/>
-                <constraint firstAttribute="bottom" secondItem="Er8-Rc-gaU" secondAttribute="bottom" constant="101" id="hzo-bo-XzK"/>
+                <constraint firstAttribute="bottom" secondItem="Er8-Rc-gaU" secondAttribute="bottom" multiplier="1.2" id="hzo-bo-XzK"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="2Nk-NG-xFI"/>
+                    <exclude reference="7bv-Zx-8eY"/>
+                    <exclude reference="Pzz-5E-d8N"/>
+                </mask>
+            </variation>
         </view>
     </objects>
+    <resources>
+        <image name="background" width="1000" height="667"/>
+    </resources>
 </document>
