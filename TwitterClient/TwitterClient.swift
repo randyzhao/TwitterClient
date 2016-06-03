@@ -51,6 +51,14 @@ class TwitterClient: BDBOAuth1SessionManager {
     }
   }
   
+  func retweet(tweet: Tweet, success: () -> (), failure: (NSError) -> ()) {
+    POST("1.1/statuses/retweet/\(tweet.id!).json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) in
+        success()
+      }, failure: { (task: NSURLSessionDataTask?, error: NSError) in
+        failure(error)
+    })
+  }
+  
   func login(success: () -> Void, failure: (NSError) -> Void) {
     loginSuccess = success
     loginFailure = failure

@@ -15,8 +15,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="413" height="193"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zbj-C6-2DL" userLabel="tweet view">
-                        <rect key="frame" x="0.0" y="20" width="413" height="135"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zbj-C6-2DL" userLabel="tweet view">
+                        <rect key="frame" x="0.0" y="20" width="413" height="134"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZV2-C3-4b5">
                                 <rect key="frame" x="8" y="8" width="56" height="56"/>

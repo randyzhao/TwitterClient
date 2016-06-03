@@ -22,6 +22,7 @@ protocol Tweet {
   var favoritesCount: Int? { get }
   var tweetType: TweetType { get }
   var user: User? { get }
+  var id: String? { get }
 }
 
 
@@ -57,6 +58,7 @@ class OriginalTweet: Tweet {
     return .Original
   }
   var user: User?
+  var id: String?
   
   init(json: JSON) {
     text = json["text"].string
@@ -68,6 +70,7 @@ class OriginalTweet: Tweet {
     retweetCount = json["retweet_count"].int
     favoritesCount = json["favourites_count"].int
     user = User(json: json["user"])
+    id = String(json["id"].int ?? 0)
   }
 }
 
@@ -97,6 +100,9 @@ class Retweet: Tweet {
     return originalTweet?.user
   }
   
+  var id: String? {
+    return originalTweet?.id
+  }
   var retweetedBy: User?
   
   init(json: JSON) {
