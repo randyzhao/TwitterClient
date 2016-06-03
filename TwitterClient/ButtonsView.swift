@@ -10,7 +10,7 @@ import UIKit
 
 protocol ButtonsViewDelegate {
   func buttonsView(buttonsView: ButtonsView, retweeted tweet: Tweet, success: (() -> ())?, failure: ((NSError) -> ())?)
-  func buttonsView(buttonsView: ButtonsView, userReplied user: User, success: (() -> ())?, failure: ((NSError) -> ())?)
+  func buttonsView(buttonsView: ButtonsView, tweetReplied tweet: Tweet, success: (() -> ())?, failure: ((NSError) -> ())?)
   func buttonsView(buttonsView: ButtonsView, tweetLoved tweet: Tweet, success: (() -> ())?, failure: ((NSError) -> ())?)
 }
 
@@ -20,7 +20,7 @@ class ButtonsView: UIView {
   @IBOutlet weak var favoritesCountLabel: UILabel!
   
   @IBOutlet weak var retweetImageView: UIImageView!
-  @IBOutlet weak var replayImageView: UIImageView!
+  @IBOutlet weak var replyImageView: UIImageView!
   @IBOutlet weak var loveImageView: UIImageView!
   
   var delegate: ButtonsViewDelegate?
@@ -55,6 +55,11 @@ class ButtonsView: UIView {
         let tap = UITapGestureRecognizer(target: self, action: #selector(onRetweet))
         retweetImageView.addGestureRecognizer(tap)
       }
+      
+      if replyImageView.gestureRecognizers == nil {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(onReply))
+        replyImageView.addGestureRecognizer(tap)
+      }
     }
   }
   
@@ -69,8 +74,8 @@ class ButtonsView: UIView {
   }
   
   func onReply() {
-    if let user = tweet?.user {
-      delegate?.buttonsView(self, userReplied: user, success: nil, failure: nil)
+    if tweet != nil {
+      delegate?.buttonsView(self, tweetReplied: tweet!, success: nil, failure: nil)
     }
   }
   

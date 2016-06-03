@@ -15,7 +15,7 @@ class User {
   var profileUrl: NSURL?
   var profileBannerUrl: NSURL?
   var tagline: String?
-  
+  var screenName: String?
   var originalDictionary: NSDictionary?
   
   private static let CurrentUserDataKey = "currentUserData"
@@ -44,6 +44,7 @@ class User {
     }
     tagline = json["description"].string
     originalDictionary = json.dictionaryObject
+    screenName = json["screen_name"].string
   }
   
   class var currentUser: User? {

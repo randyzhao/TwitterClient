@@ -61,6 +61,7 @@ class OriginalTweet: Tweet {
   var user: User?
   var id: String?
   var retweeted: Bool?
+  var screenName: String?
   
   init(json: JSON) {
     text = json["text"].string
@@ -72,7 +73,7 @@ class OriginalTweet: Tweet {
     retweetCount = json["retweet_count"].int
     favoritesCount = json["favourites_count"].int
     user = User(json: json["user"])
-    id = String(json["id"].int ?? 0)
+    id = json["id_str"].string
     retweeted = json["retweeted"].bool
   }
 }

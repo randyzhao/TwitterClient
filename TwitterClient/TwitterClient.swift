@@ -34,7 +34,6 @@ class TwitterClient: BDBOAuth1SessionManager {
   
   func homeTimeline(success: ([Tweet]) -> (), failure: (NSError) -> ()) {
     GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) in
-      //let tweets = Tweet.tweetsFromArray(response as! [NSDictionary])
       let tweets = TweetHelper.tweetsFromNetworking(response)
       success(tweets ?? [])
       }, failure: { (task: NSURLSessionDataTask?, error: NSError) in
@@ -43,8 +42,12 @@ class TwitterClient: BDBOAuth1SessionManager {
   }
   
   
-  func newTweet(status: String, success: () -> (), failure: (NSError) -> ()) {
-    POST("1.1/statuses/update.json", parameters: ["status": status], progress: nil, success: { (_: NSURLSessionDataTask, _: AnyObject?) in
+  func newTweet(status: String, inReplyTo: Tweet?, success: () -> (), failure: (NSError) -> ()) {
+    var parameters = ["status": status]
+    if let inReplyToId = inReplyTo?.id {
+      parameters["in_reply_to_status_id"] = inReplyToId
+    }
+    POST("1.1/statuses/update.json", parameters: parameters, progress: nil, success: { (_: NSURLSessionDataTask, _: AnyObject?) in
       success()
     }) { (_: NSURLSessionDataTask?, error: NSError) in
       failure(error)

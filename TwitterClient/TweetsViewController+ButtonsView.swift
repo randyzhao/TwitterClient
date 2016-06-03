@@ -20,8 +20,13 @@ extension TweetsViewController: ButtonsViewDelegate {
     }
   }
   
-  func buttonsView(buttonsView: ButtonsView, userReplied user: User, success: (() -> ())?, failure: ((NSError) -> ())?) {
-    
+  func buttonsView(buttonsView: ButtonsView, tweetReplied tweet: Tweet, success: (() -> ())?, failure: ((NSError) -> ())?) {
+    let ntvc = NewTweetViewController()
+    ntvc.inReplyTo = tweet
+    ntvc.user = User.currentUser
+    containerViewController?.navigationController?.presentViewController(ntvc, animated: true, completion: {
+      success?()
+    })
   }
   
   func buttonsView(buttonsView: ButtonsView, tweetLoved tweet: Tweet, success: (() -> ())?, failure: ((NSError) -> ())?) {

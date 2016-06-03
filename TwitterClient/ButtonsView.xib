@@ -9,7 +9,7 @@
             <connections>
                 <outlet property="favoritesCountLabel" destination="DFP-E0-Udw" id="uQC-qp-gZK"/>
                 <outlet property="loveImageView" destination="E6M-1v-Vv2" id="Z02-1b-a9h"/>
-                <outlet property="replayImageView" destination="Zc9-qH-dS8" id="HoB-2V-jaT"/>
+                <outlet property="replyImageView" destination="Zc9-qH-dS8" id="7FS-hd-7JR"/>
                 <outlet property="retweetCountLabel" destination="aNI-HU-fSB" id="x5K-p7-TAT"/>
                 <outlet property="retweetImageView" destination="nNT-XR-Zim" id="y8z-gn-aeh"/>
             </connections>
