@@ -41,6 +41,7 @@ class NewTweetViewController: UIViewController {
   }
 
   @IBAction func onCloseButton(sender: AnyObject) {
+    tweetTextView.resignFirstResponder()
     dismissViewControllerAnimated(true, completion: nil)
   }
   

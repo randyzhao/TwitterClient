@@ -30,12 +30,15 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ikh-gs-Uu0">
-                    <rect key="frame" x="506" y="30" width="46" height="30"/>
+                    <rect key="frame" x="490" y="30" width="62" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="46" id="1dG-di-6QN"/>
+                        <constraint firstAttribute="width" constant="62" id="1dG-di-6QN"/>
                         <constraint firstAttribute="height" constant="30" id="md4-Ct-MgH"/>
                     </constraints>
-                    <state key="normal" title="Tweet"/>
+                    <state key="normal" title="Tweet">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="onTweet:" destination="-1" eventType="touchUpInside" id="siR-hT-YTS"/>
                     </connections>
