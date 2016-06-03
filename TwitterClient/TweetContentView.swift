@@ -39,16 +39,11 @@ class TweetContentView: UIView {
   private func nibSetup() {
     let view = NSBundle.mainBundle().loadNibNamed("TweetContentView", owner: self, options: nil).first as! UIView
     addSubview(view)
-    //view.frame.size = frame.size
-    view.frame.size.height = frame.size.height
-    //view.translatesAutoresizingMaskIntoConstraints = false
-    view.autoresizingMask = [.FlexibleWidth]
-    //tweetTextLabel.preferredMaxLayoutWidth = frame.size.width
-    //tweetTextLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
-    //tweetTextLabel.sizeToFit()
+    view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+    view.frame = bounds
   }
   
   override func intrinsicContentSize() -> CGSize {
-    return CGSize(width: UIViewNoIntrinsicMetric, height: mainView.frame.height)
+    return CGSize(width: UIViewNoIntrinsicMetric, height: 300)
   }
 }
