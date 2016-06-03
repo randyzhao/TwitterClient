@@ -31,7 +31,7 @@ class TweetsViewController: UIViewController {
     tweetTableView.rowHeight = UITableViewAutomaticDimension
     tweetTableView.estimatedRowHeight = 100
     
-    TwitterClient.sharedInstance.homeTimeline({ (tweets: [Tweet]) in
+    TwitterClient.sharedInstance.homeTimeline(success: { (tweets: [Tweet]) in
       self.tweets = tweets
       self.tweetTableView.reloadData()
       }) { (error) in
@@ -42,6 +42,9 @@ class TweetsViewController: UIViewController {
     let newTweetButton = UIBarButtonItem(image: icon, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(onNewTweetButton))
     containerViewController?.navigationItem.rightBarButtonItem = newTweetButton
     
+    let refreshControl = UIRefreshControl()
+    refreshControl.addTarget(self, action: #selector(refreshControlAction), forControlEvents: UIControlEvents.ValueChanged)
+    tweetTableView.insertSubview(refreshControl, atIndex: 0)
     // Do any additional setup after loading the view.
   }
   
@@ -59,14 +62,23 @@ class TweetsViewController: UIViewController {
     vc.user = User.currentUser
     containerViewController?.navigationController?.presentViewController(vc, animated: true, completion: nil)
   }
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
   
+  func refreshTweets(sinceId: String?, maxId: String?, success: (() -> ())?, failure: ((NSError) -> ())?) {
+    TwitterClient.sharedInstance.homeTimeline(sinceId: sinceId, maxId: maxId, success: { (tweets: [Tweet]) in
+      self.tweets = tweets + self.tweets
+      self.tweetTableView.reloadData()
+      success?()
+    }) { (error: NSError) in
+      failure?(error)
+    }
+  }
+  
+  func refreshControlAction(refreshControl: UIRefreshControl) {
+    refreshTweets(tweets.first?.id, maxId: nil, success: { 
+      refreshControl.endRefreshing()
+    }) { (error: NSError) in
+      print("\(error.localizedDescription)")
+      refreshControl.endRefreshing()
+    }
+  }
 }

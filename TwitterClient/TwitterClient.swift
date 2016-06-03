@@ -32,8 +32,18 @@ class TwitterClient: BDBOAuth1SessionManager {
     
   }
   
-  func homeTimeline(success: ([Tweet]) -> (), failure: (NSError) -> ()) {
-    GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) in
+  func homeTimeline(count: Int? = 20, sinceId: String? = nil, maxId: String? = nil, success: ([Tweet]) -> (), failure: (NSError) -> ()) {
+    var parameters = [String: String]()
+    if count != nil {
+      parameters["count"] = String(count!)
+    }
+    if sinceId != nil {
+      parameters["since_id"] = sinceId
+    }
+    if maxId != nil {
+      parameters["max_id"] = maxId
+    }
+    GET("1.1/statuses/home_timeline.json", parameters: parameters, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) in
       let tweets = TweetHelper.tweetsFromNetworking(response)
       success(tweets ?? [])
       }, failure: { (task: NSURLSessionDataTask?, error: NSError) in
@@ -82,7 +92,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken: BDBOAuth1Credential!) in
       print("I got the access token")
       
-      self.homeTimeline({ (tweets: [Tweet]) -> Void in
+      self.homeTimeline(success: { (tweets: [Tweet]) -> Void in
         }, failure: { (error: NSError) -> Void in
       })
       
