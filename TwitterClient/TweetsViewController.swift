@@ -36,13 +36,8 @@ class TweetsViewController: UIViewController {
     tweetTableView.rowHeight = UITableViewAutomaticDimension
     tweetTableView.estimatedRowHeight = 200
     
+    setupTitle()
     
-//    TwitterClient.sharedInstance.homeTimeline(success: { (tweets: [Tweet]) in
-//      self.tweets = tweets
-//      self.tweetTableView.reloadData()
-//      }) { (error) in
-//        print("error: \(error.localizedDescription)")
-//    }
     refreshTweets(nil, maxId: nil, success: nil, failure: nil)
     
     let icon = UIImage(named: "new_tweet")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
@@ -57,6 +52,10 @@ class TweetsViewController: UIViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
+    setupTitle()
+  }
+  
+  private func setupTitle() {
     switch controllerType! {
     case .Home:
       containerViewController?.navigationItem.title = "Home"

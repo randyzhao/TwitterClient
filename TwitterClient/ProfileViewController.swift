@@ -14,6 +14,8 @@ class ProfileViewController: UIViewController {
   
   @IBOutlet weak var profileHeaderView: ProfileHeaderView!
   @IBOutlet weak var tweetsTableView: UITableView!
+  @IBOutlet weak var followingCountLabel: UILabel!
+  @IBOutlet weak var followersCountLabel: UILabel!
   
   var user: User?
   var containerViewController: UIViewController?
@@ -22,6 +24,8 @@ class ProfileViewController: UIViewController {
   private func setup() {
     profileHeaderView.user = user
     containerViewController?.navigationItem.title = "Profile"
+    followingCountLabel.text = String(user?.followingCount ?? 0)
+    followersCountLabel.text = String(user?.followersCount ?? 0)
   }
   
   override func viewDidLoad() {
@@ -33,7 +37,7 @@ class ProfileViewController: UIViewController {
     tweetsTableView.estimatedRowHeight = 200
     tweetsTableView.registerNib(UINib(nibName: "TweetTableViewCell", bundle: nil), forCellReuseIdentifier: "tweetCell")
     refreshTweets(nil, maxId: nil, success: nil, failure: nil)
-    // Do any additional setup after loading the view.
+    
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -47,7 +51,7 @@ class ProfileViewController: UIViewController {
   }
   
   func refreshTweets(sinceId: String?, maxId: String?, success: (() -> ())?, failure: ((NSError) -> ())?) {
-    TwitterClient.sharedInstance.timeline(.User, sinceId: sinceId, maxId: maxId, success: { (tweets: [Tweet]) in
+    TwitterClient.sharedInstance.timeline(.User, userId: user?.id, sinceId: sinceId, maxId: maxId, success: { (tweets: [Tweet]) in
       self.tweets = tweets + self.tweets
       self.tweetsTableView.reloadData()
       success?()

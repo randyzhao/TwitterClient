@@ -46,8 +46,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLA-CS-JiH">
-                                <rect key="frame" x="72" y="36" width="341" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="72" y="36" width="341" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -62,7 +62,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="jLA-CS-JiH" firstAttribute="top" secondItem="Eib-gr-SnL" secondAttribute="bottom" constant="8" id="5U0-W2-VQM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oto-Hz-gCK" secondAttribute="trailing" id="9MF-DY-maA"/>
@@ -78,7 +77,6 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="1" green="0.094007350510000004" blue="0.182369007" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="qCA-wk-ftj" secondAttribute="bottom" id="0EK-KI-CO6"/>
                     <constraint firstAttribute="trailing" secondItem="L1R-WJ-QcC" secondAttribute="trailing" id="CYR-nw-CI2"/>

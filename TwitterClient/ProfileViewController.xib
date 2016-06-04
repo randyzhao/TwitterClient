@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="TwitterClient" customModuleProvider="target">
             <connections>
+                <outlet property="followersCountLabel" destination="3gr-Nj-8FJ" id="siw-kO-1mH"/>
+                <outlet property="followingCountLabel" destination="bDj-sr-xt5" id="1pb-ij-Uzz"/>
                 <outlet property="profileHeaderView" destination="pIK-VL-aqJ" id="U3b-g2-lhW"/>
                 <outlet property="tweetsTableView" destination="M6Y-Bu-hwS" id="27P-HZ-UAB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -25,20 +27,70 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M6Y-Bu-hwS">
-                    <rect key="frame" x="8" y="236" width="584" height="356"/>
+                    <rect key="frame" x="8" y="275" width="584" height="317"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1111" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDj-sr-xt5">
+                    <rect key="frame" x="22" y="232" width="28" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Following" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BF9-tc-4GA">
+                    <rect key="frame" x="54" y="232" width="65" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2222" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gr-Nj-8FJ">
+                    <rect key="frame" x="139" y="232" width="36" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Followers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYn-hB-QPM">
+                    <rect key="frame" x="179" y="232" width="65" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4W-mg-JJ9">
+                    <rect key="frame" x="8" y="266" width="592" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Z7G-kC-TPh"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="pIK-VL-aqJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3I0-XL-5xN"/>
+                <constraint firstItem="bDj-sr-xt5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="22" id="79W-7B-rxG"/>
                 <constraint firstAttribute="bottom" secondItem="M6Y-Bu-hwS" secondAttribute="bottom" constant="8" id="DLo-7q-rSg"/>
+                <constraint firstItem="O4W-mg-JJ9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Ehl-4h-9de"/>
+                <constraint firstItem="3gr-Nj-8FJ" firstAttribute="baseline" secondItem="bDj-sr-xt5" secondAttribute="baseline" id="Erq-4u-ny6"/>
+                <constraint firstItem="BF9-tc-4GA" firstAttribute="leading" secondItem="bDj-sr-xt5" secondAttribute="trailing" constant="4" id="FNZ-rJ-Kda"/>
+                <constraint firstItem="3gr-Nj-8FJ" firstAttribute="leading" secondItem="BF9-tc-4GA" secondAttribute="trailing" constant="20" id="ISR-eO-3xs"/>
+                <constraint firstItem="M6Y-Bu-hwS" firstAttribute="top" secondItem="O4W-mg-JJ9" secondAttribute="bottom" constant="8" id="O95-rd-b7l"/>
+                <constraint firstItem="QYn-hB-QPM" firstAttribute="baseline" secondItem="bDj-sr-xt5" secondAttribute="baseline" id="SIP-8Z-B8V"/>
+                <constraint firstAttribute="trailing" secondItem="O4W-mg-JJ9" secondAttribute="trailing" id="U8U-V0-Z5M"/>
                 <constraint firstAttribute="trailing" secondItem="M6Y-Bu-hwS" secondAttribute="trailing" constant="8" id="bD9-nc-WiS"/>
+                <constraint firstItem="bDj-sr-xt5" firstAttribute="top" secondItem="pIK-VL-aqJ" secondAttribute="bottom" constant="12" id="bLS-T9-0dv"/>
                 <constraint firstItem="M6Y-Bu-hwS" firstAttribute="top" secondItem="pIK-VL-aqJ" secondAttribute="bottom" constant="16" id="bw2-fg-pd2"/>
+                <constraint firstItem="O4W-mg-JJ9" firstAttribute="top" secondItem="QYn-hB-QPM" secondAttribute="bottom" constant="16" id="cal-qQ-s9Y"/>
                 <constraint firstItem="M6Y-Bu-hwS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="dCa-YT-9Ic"/>
+                <constraint firstItem="BF9-tc-4GA" firstAttribute="baseline" secondItem="bDj-sr-xt5" secondAttribute="baseline" id="ecZ-O3-VD1"/>
+                <constraint firstItem="M6Y-Bu-hwS" firstAttribute="top" secondItem="QYn-hB-QPM" secondAttribute="bottom" constant="12" id="gJN-Ue-zZf"/>
+                <constraint firstItem="QYn-hB-QPM" firstAttribute="leading" secondItem="3gr-Nj-8FJ" secondAttribute="trailing" constant="4" id="gfD-jO-mqw"/>
                 <constraint firstItem="pIK-VL-aqJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qev-je-1ou"/>
                 <constraint firstAttribute="trailing" secondItem="pIK-VL-aqJ" secondAttribute="trailing" id="uPA-ny-TF0"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="bw2-fg-pd2"/>
+                    <exclude reference="gJN-Ue-zZf"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>

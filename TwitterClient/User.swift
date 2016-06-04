@@ -17,6 +17,9 @@ class User {
   var tagline: String?
   var screenName: String?
   var originalDictionary: NSDictionary?
+  var followingCount: Int?
+  var followersCount: Int?
+  var id: String?
   
   private static let CurrentUserDataKey = "currentUserData"
   private static var _currentUser: User?
@@ -29,8 +32,9 @@ class User {
     if let profileUrlString = dictionary["profile_image_url_https"] as? String {
       profileUrl = NSURL(string: profileUrlString)
     }
-    
     tagline = dictionary["description"] as? String
+    followingCount = dictionary["friends_count"] as? Int
+    followersCount = dictionary["followers_count"] as? Int
   }
   
   init(json: JSON) {
@@ -45,6 +49,9 @@ class User {
     tagline = json["description"].string
     originalDictionary = json.dictionaryObject
     screenName = json["screen_name"].string
+    followersCount = json["followers_count"].int
+    followingCount = json["friends_count"].int
+    id = json["id_str"].string
   }
   
   class var currentUser: User? {
@@ -52,7 +59,6 @@ class User {
       if _currentUser != nil {
         return _currentUser
       }
-      
       let defaults = NSUserDefaults.standardUserDefaults()
       if let data = defaults.objectForKey(CurrentUserDataKey) as? NSData {
         let dictionary = try! NSJSONSerialization.JSONObjectWithData(data, options: []) as! NSDictionary

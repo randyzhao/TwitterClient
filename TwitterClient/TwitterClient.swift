@@ -38,7 +38,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     
   }
   
-  func timeline(type: TimelineType, count: Int? = 20, sinceId: String? = nil, maxId: String? = nil, success: ([Tweet]) -> (), failure: (NSError) -> ()) {
+  func timeline(type: TimelineType, userId: String? = nil, count: Int? = 20, sinceId: String? = nil, maxId: String? = nil, success: ([Tweet]) -> (), failure: (NSError) -> ()) {
     var parameters = [String: String]()
     if count != nil {
       parameters["count"] = String(count!)
@@ -48,6 +48,9 @@ class TwitterClient: BDBOAuth1SessionManager {
     }
     if maxId != nil {
       parameters["max_id"] = maxId
+    }
+    if userId != nil {
+      parameters["user_id"] = userId
     }
     var urlStr = ""
     switch type {
