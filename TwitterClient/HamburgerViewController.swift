@@ -34,11 +34,13 @@ class HamburgerViewController: UIViewController{
       }
       
       contentViewController.willMoveToParentViewController(self)
+      contentViewController.view.frame = contentView.bounds
       contentView.addSubview(contentViewController.view)
       contentViewController.didMoveToParentViewController(self)
       
       UIView.animateWithDuration(0.3) { 
         self.contentViewLeftMargin.constant = 0
+        self.view.setNeedsLayout()
         self.view.layoutIfNeeded()
       }
     }
@@ -46,8 +48,6 @@ class HamburgerViewController: UIViewController{
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // Do any additional setup after loading the view.
   }
   
   override func didReceiveMemoryWarning() {
@@ -63,12 +63,14 @@ class HamburgerViewController: UIViewController{
     case UIGestureRecognizerState.Began:
       originalLeftMargin = contentViewLeftMargin.constant
     case UIGestureRecognizerState.Changed:
-      contentViewLeftMargin.constant = originalLeftMargin + translation.x
+      if originalLeftMargin + translation.x > 0 {
+        contentViewLeftMargin.constant = originalLeftMargin + translation.x
+      }
     case UIGestureRecognizerState.Ended:
       UIView.animateWithDuration(0.3, animations: { 
         if velocity.x > 0 {
           // opening the menu
-          self.contentViewLeftMargin.constant = self.view.frame.size.width - 50
+          self.contentViewLeftMargin.constant = self.view.frame.size.width - 100
         } else {
           self.contentViewLeftMargin.constant = 0
         }
@@ -77,15 +79,4 @@ class HamburgerViewController: UIViewController{
       break
     }
   }
-  
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
-  
 }

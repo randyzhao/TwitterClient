@@ -15,6 +15,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="413" height="192"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1R-WJ-QcC" customClass="RetweetStatusView" customModule="TwitterClient" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="413" height="20"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="MsG-B8-gDa"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qCA-wk-ftj" customClass="ButtonsView" customModule="TwitterClient" customModuleProvider="target">
+                        <rect key="frame" x="8" y="154" width="397" height="30"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="g83-Gz-4ug"/>
+                        </constraints>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zbj-C6-2DL" userLabel="tweet view">
                         <rect key="frame" x="0.0" y="20" width="413" height="134"/>
                         <subviews>
@@ -31,8 +45,14 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eib-gr-SnL">
-                                <rect key="frame" x="72" y="8" width="38" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLA-CS-JiH">
+                                <rect key="frame" x="72" y="36" width="341" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eib-gr-SnL">
+                                <rect key="frame" x="72" y="8" width="71" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="9nI-Ku-c5l"/>
@@ -41,14 +61,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLA-CS-JiH">
-                                <rect key="frame" x="72" y="36" width="341" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="jLA-CS-JiH" firstAttribute="top" secondItem="Eib-gr-SnL" secondAttribute="bottom" constant="8" id="5U0-W2-VQM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oto-Hz-gCK" secondAttribute="trailing" id="9MF-DY-maA"/>
@@ -63,21 +77,8 @@
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="jLA-CS-JiH" secondAttribute="bottom" id="f3l-dV-sgL"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1R-WJ-QcC" customClass="RetweetStatusView" customModule="TwitterClient" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="413" height="20"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="MsG-B8-gDa"/>
-                        </constraints>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qCA-wk-ftj" customClass="ButtonsView" customModule="TwitterClient" customModuleProvider="target">
-                        <rect key="frame" x="8" y="154" width="397" height="30"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="30" id="g83-Gz-4ug"/>
-                        </constraints>
-                    </view>
                 </subviews>
+                <color key="backgroundColor" red="1" green="0.094007350510000004" blue="0.182369007" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="qCA-wk-ftj" secondAttribute="bottom" id="0EK-KI-CO6"/>
                     <constraint firstAttribute="trailing" secondItem="L1R-WJ-QcC" secondAttribute="trailing" id="CYR-nw-CI2"/>

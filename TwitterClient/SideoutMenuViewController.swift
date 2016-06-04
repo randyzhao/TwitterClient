@@ -43,7 +43,6 @@ class SideoutMenuViewController: UIViewController, UITableViewDelegate, UITableV
     ]
 
     hamburgerViewController.contentViewController = viewControllers[2]
-    // Do any additional setup after loading the view.
   }
   
   override func didReceiveMemoryWarning() {

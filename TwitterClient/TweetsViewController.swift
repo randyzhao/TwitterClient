@@ -28,13 +28,6 @@ class TweetsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    switch controllerType! {
-    case .Home:
-      containerViewController?.navigationItem.title = "Home"
-    case .Mentions:
-      containerViewController?.navigationItem.title = "Mentions"
-    }
-    
     containerViewController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(onLogoutButton))
     
     tweetTableView.registerNib(UINib(nibName: "TweetTableViewCell", bundle: nil), forCellReuseIdentifier: "tweetCell")
@@ -60,6 +53,16 @@ class TweetsViewController: UIViewController {
     refreshControl.addTarget(self, action: #selector(refreshControlAction), forControlEvents: UIControlEvents.ValueChanged)
     tweetTableView.insertSubview(refreshControl, atIndex: 0)
     // Do any additional setup after loading the view.
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    switch controllerType! {
+    case .Home:
+      containerViewController?.navigationItem.title = "Home"
+    case .Mentions:
+      containerViewController?.navigationItem.title = "Mentions"
+    }
   }
   
   override func didReceiveMemoryWarning() {
