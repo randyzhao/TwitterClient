@@ -12,17 +12,29 @@ import UIKit
   optional func viewController(pushNewViewController nvc: UIViewController, animated: Bool)
 }
 
+enum TweetsViewControllerType {
+  case Home
+  case Mentions
+}
+
 class TweetsViewController: UIViewController {
   
   @IBOutlet weak var tweetTableView: UITableView!
   var tweets = [Tweet]()
   var delegate: ContainedViewControllerDelegate?
   var containerViewController: UIViewController?
+  var controllerType: TweetsViewControllerType!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    containerViewController?.navigationItem.title = "Home"
+    switch controllerType! {
+    case .Home:
+      containerViewController?.navigationItem.title = "Home"
+    case .Mentions:
+      containerViewController?.navigationItem.title = "Mentions"
+    }
+    
     containerViewController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(onLogoutButton))
     
     tweetTableView.registerNib(UINib(nibName: "TweetTableViewCell", bundle: nil), forCellReuseIdentifier: "tweetCell")
@@ -31,12 +43,14 @@ class TweetsViewController: UIViewController {
     tweetTableView.rowHeight = UITableViewAutomaticDimension
     tweetTableView.estimatedRowHeight = 100
     
-    TwitterClient.sharedInstance.homeTimeline(success: { (tweets: [Tweet]) in
-      self.tweets = tweets
-      self.tweetTableView.reloadData()
-      }) { (error) in
-        print("error: \(error.localizedDescription)")
-    }
+    
+//    TwitterClient.sharedInstance.homeTimeline(success: { (tweets: [Tweet]) in
+//      self.tweets = tweets
+//      self.tweetTableView.reloadData()
+//      }) { (error) in
+//        print("error: \(error.localizedDescription)")
+//    }
+    refreshTweets(nil, maxId: nil, success: nil, failure: nil)
     
     let icon = UIImage(named: "new_tweet")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
     let newTweetButton = UIBarButtonItem(image: icon, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(onNewTweetButton))
@@ -64,7 +78,15 @@ class TweetsViewController: UIViewController {
   }
   
   func refreshTweets(sinceId: String?, maxId: String?, success: (() -> ())?, failure: ((NSError) -> ())?) {
-    TwitterClient.sharedInstance.homeTimeline(sinceId: sinceId, maxId: maxId, success: { (tweets: [Tweet]) in
+    let timelineType: TimelineType!
+    switch controllerType! {
+    case .Home:
+      timelineType = .Home
+    case .Mentions:
+      timelineType = .Mentions
+    }
+    
+    TwitterClient.sharedInstance.timeline(timelineType, sinceId: sinceId, maxId: maxId, success: { (tweets: [Tweet]) in
       self.tweets = tweets + self.tweets
       self.tweetTableView.reloadData()
       success?()

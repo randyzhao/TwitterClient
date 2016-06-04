@@ -11,6 +11,12 @@ import BDBOAuth1Manager
 
 private var _sharedInstance = TwitterClient(baseURL: NSURL(string: "https://api.twitter.com")!, consumerKey: "O7nUPAjghP7CsDjKp9DCtfhgi", consumerSecret: "7qW6FFx3YybObsSrmYDQqUbHIdgdue2TE7JcSWUszCiaYdU2y8")
 
+enum TimelineType {
+  case Home
+  case Mentions
+  case User
+}
+
 class TwitterClient: BDBOAuth1SessionManager {
   static var sharedInstance: TwitterClient {
     let client = _sharedInstance
@@ -32,7 +38,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     
   }
   
-  func homeTimeline(count: Int? = 20, sinceId: String? = nil, maxId: String? = nil, success: ([Tweet]) -> (), failure: (NSError) -> ()) {
+  func timeline(type: TimelineType, count: Int? = 20, sinceId: String? = nil, maxId: String? = nil, success: ([Tweet]) -> (), failure: (NSError) -> ()) {
     var parameters = [String: String]()
     if count != nil {
       parameters["count"] = String(count!)
@@ -43,14 +49,23 @@ class TwitterClient: BDBOAuth1SessionManager {
     if maxId != nil {
       parameters["max_id"] = maxId
     }
-    GET("1.1/statuses/home_timeline.json", parameters: parameters, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) in
+    var urlStr = ""
+    switch type {
+    case .Home:
+      urlStr = "1.1/statuses/home_timeline.json"
+    case .Mentions:
+      urlStr = "1.1/statuses/mentions_timeline.json"
+    case .User:
+      urlStr = "1.1/statuses/user_timeline.json"
+    }
+    
+    GET(urlStr, parameters: parameters, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) in
       let tweets = TweetHelper.tweetsFromNetworking(response)
       success(tweets ?? [])
       }, failure: { (task: NSURLSessionDataTask?, error: NSError) in
         failure(error)
     })
   }
-  
   
   func newTweet(status: String, inReplyTo: Tweet?, success: () -> (), failure: (NSError) -> ()) {
     var parameters = ["status": status]
@@ -105,7 +120,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken: BDBOAuth1Credential!) in
       print("I got the access token")
       
-      self.homeTimeline(success: { (tweets: [Tweet]) -> Void in
+      self.timeline(.Home, success: { (tweets: [Tweet]) -> Void in
         }, failure: { (error: NSError) -> Void in
       })
       

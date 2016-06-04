@@ -26,16 +26,23 @@ class SideoutMenuViewController: UIViewController, UITableViewDelegate, UITableV
     pvc.user = User.currentUser
     pvc.containerViewController = hamburgerViewController
     
-    let tvc = TweetsViewController()
-    tvc.delegate = hamburgerViewController
-    tvc.containerViewController = hamburgerViewController
+    let homeVC = TweetsViewController()
+    homeVC.delegate = hamburgerViewController
+    homeVC.containerViewController = hamburgerViewController
+    homeVC.controllerType = .Home
+    
+    let mentionsVC = TweetsViewController()
+    mentionsVC.delegate = hamburgerViewController
+    mentionsVC.containerViewController = hamburgerViewController
+    mentionsVC.controllerType = .Mentions
     
     viewControllers = [
       pvc,
-      tvc,
+      homeVC,
+      mentionsVC
     ]
 
-    hamburgerViewController.contentViewController = viewControllers[1]
+    hamburgerViewController.contentViewController = viewControllers[2]
     // Do any additional setup after loading the view.
   }
   
