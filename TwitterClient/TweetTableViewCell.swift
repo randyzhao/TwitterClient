@@ -19,8 +19,8 @@ class TweetTableViewCell: UITableViewCell {
   @IBOutlet weak var usernameLabel: UILabel!
   @IBOutlet weak var profileImageView: UIImageView!
   @IBOutlet weak var timestampDiffLabel: UILabel!
-  @IBOutlet weak var tweetContentView: TweetContentView!
   @IBOutlet weak var buttonsView: ButtonsView!
+  @IBOutlet weak var tweetTextLabel: UILabel!
   
   var delegate: TweetTableCellDelegate?
   
@@ -33,7 +33,7 @@ class TweetTableViewCell: UITableViewCell {
       buttonsView.tweet = tweet
       timestampDiffLabel.text = calcTimestampDiff(tweet?.timestamp)
       retweetStatusView.tweet = tweet
-      tweetContentView.tweet = tweet
+      tweetTextLabel.text = tweet?.text
       
       if let tweetType = tweet?.tweetType {
         switch tweetType {

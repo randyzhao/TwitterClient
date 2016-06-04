@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="413" height="193"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="413" height="192.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="413" height="192"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zbj-C6-2DL" userLabel="tweet view">
@@ -31,20 +31,6 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Sg-xu-7zR" customClass="TweetContentView" customModule="TwitterClient" customModuleProvider="target">
-                                <rect key="frame" x="72" y="33" width="333" height="100"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="ON0-n8-FIw"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="101" id="gpy-9I-PWu"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="ON0-n8-FIw"/>
-                                        <exclude reference="gpy-9I-PWu"/>
-                                    </mask>
-                                </variation>
-                            </view>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eib-gr-SnL">
                                 <rect key="frame" x="72" y="8" width="38" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -55,27 +41,27 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLA-CS-JiH">
+                                <rect key="frame" x="72" y="36" width="341" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="jLA-CS-JiH" firstAttribute="top" secondItem="Eib-gr-SnL" secondAttribute="bottom" constant="8" id="5U0-W2-VQM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oto-Hz-gCK" secondAttribute="trailing" id="9MF-DY-maA"/>
                             <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="ZV2-C3-4b5" secondAttribute="bottom" priority="999" id="Bnz-Ba-Fn6"/>
                             <constraint firstItem="Eib-gr-SnL" firstAttribute="top" secondItem="Zbj-C6-2DL" secondAttribute="topMargin" id="CRq-nU-CTz"/>
                             <constraint firstItem="oto-Hz-gCK" firstAttribute="top" secondItem="Zbj-C6-2DL" secondAttribute="topMargin" id="D7G-kA-z0z"/>
                             <constraint firstItem="ZV2-C3-4b5" firstAttribute="leading" secondItem="Zbj-C6-2DL" secondAttribute="leadingMargin" id="G6I-g9-MwO"/>
+                            <constraint firstAttribute="trailing" secondItem="jLA-CS-JiH" secondAttribute="trailing" id="GTD-yk-rXn"/>
                             <constraint firstItem="ZV2-C3-4b5" firstAttribute="top" secondItem="Zbj-C6-2DL" secondAttribute="topMargin" id="Iuh-Zg-gzj"/>
-                            <constraint firstItem="7Sg-xu-7zR" firstAttribute="top" secondItem="Eib-gr-SnL" secondAttribute="bottom" constant="8" id="QVN-uW-ZVe"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="7Sg-xu-7zR" secondAttribute="bottom" id="cc1-yq-KHX"/>
+                            <constraint firstItem="jLA-CS-JiH" firstAttribute="leading" secondItem="ZV2-C3-4b5" secondAttribute="trailing" constant="8" id="Jnm-ez-zUm"/>
                             <constraint firstItem="Eib-gr-SnL" firstAttribute="leading" secondItem="ZV2-C3-4b5" secondAttribute="trailing" constant="8" id="eOd-3J-wXk"/>
-                            <constraint firstItem="7Sg-xu-7zR" firstAttribute="trailing" secondItem="Zbj-C6-2DL" secondAttribute="trailingMargin" id="tfK-k3-jw2"/>
-                            <constraint firstItem="7Sg-xu-7zR" firstAttribute="leading" secondItem="ZV2-C3-4b5" secondAttribute="trailing" constant="8" id="wi8-h4-mEX"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="7Sg-xu-7zR" secondAttribute="bottom" id="ymz-XD-5ed"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="jLA-CS-JiH" secondAttribute="bottom" id="f3l-dV-sgL"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="ymz-XD-5ed"/>
-                            </mask>
-                        </variation>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1R-WJ-QcC" customClass="RetweetStatusView" customModule="TwitterClient" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="413" height="20"/>
@@ -111,7 +97,7 @@
                 <outlet property="retweetStatusView" destination="L1R-WJ-QcC" id="oqW-sr-ipQ"/>
                 <outlet property="retweetStatusViewHeightConstraint" destination="MsG-B8-gDa" id="6kU-8k-a1M"/>
                 <outlet property="timestampDiffLabel" destination="oto-Hz-gCK" id="etr-CA-qVK"/>
-                <outlet property="tweetContentView" destination="7Sg-xu-7zR" id="uRP-Qh-qTC"/>
+                <outlet property="tweetTextLabel" destination="jLA-CS-JiH" id="O2Z-vG-1OS"/>
                 <outlet property="usernameLabel" destination="Eib-gr-SnL" id="cND-ZO-9zn"/>
             </connections>
             <point key="canvasLocation" x="536.5" y="545"/>
