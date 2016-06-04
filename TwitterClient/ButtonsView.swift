@@ -49,9 +49,15 @@ class ButtonsView: UIView {
         retweetImageView.image = UIImage(named: "retweet")
       }
       
+      if tweet?.favorited == true {
+        loveImageView.image = UIImage(named: "loved")
+      } else {
+        loveImageView.image = UIImage(named: "love")
+      }
+      
       retweetCountLabel.text = String(tweet?.retweetCount ?? 0)
       favoritesCountLabel.text = String(tweet?.favoritesCount ?? 0)
-      if retweetImageView.gestureRecognizers == nil{
+      if retweetImageView.gestureRecognizers == nil {
         let tap = UITapGestureRecognizer(target: self, action: #selector(onRetweet))
         retweetImageView.addGestureRecognizer(tap)
       }
@@ -59,6 +65,11 @@ class ButtonsView: UIView {
       if replyImageView.gestureRecognizers == nil {
         let tap = UITapGestureRecognizer(target: self, action: #selector(onReply))
         replyImageView.addGestureRecognizer(tap)
+      }
+      
+      if loveImageView.gestureRecognizers == nil {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(onLove))
+        loveImageView.addGestureRecognizer(tap)
       }
     }
   }
@@ -101,7 +112,26 @@ class ButtonsView: UIView {
   
   func onLove() {
     if tweet != nil {
-      delegate?.buttonsView(self, tweetLoved: tweet!, success: nil, failure: nil)
+      delegate?.buttonsView(
+        self,
+        tweetLoved: tweet!,
+        success: {
+          () -> () in
+          self.tweet?.favorited = true
+          if self.tweet?.favoritesCount != nil {
+            self.tweet?.favoritesCount! += 1
+          }
+          self.refreshContent()
+          UIView.animateWithDuration(0.3, animations: {
+            self.loveImageView.transform = CGAffineTransformMakeScale(2, 2)
+            }, completion: { (completed) in
+              UIView.animateWithDuration(0.3, animations: {
+                self.loveImageView.transform = CGAffineTransformIdentity
+                }, completion: nil)
+          })
+        },
+        failure: nil
+      )
     }
   }
 }

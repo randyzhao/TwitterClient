@@ -72,6 +72,19 @@ class TwitterClient: BDBOAuth1SessionManager {
     })
   }
   
+  func love(tweet: Tweet, success: () -> (), failure: (NSError) -> ()) {
+    let parameters = ["id": tweet.id ?? "0"]
+    POST("1.1/favorites/create.json", parameters: parameters, progress: nil,
+         success: {
+          (task: NSURLSessionTask, response: AnyObject?) in
+          success()
+      }, failure: {
+        (task: NSURLSessionTask?, error: NSError) in
+        failure(error)
+      }
+    )
+  }
+  
   func login(success: () -> Void, failure: (NSError) -> Void) {
     loginSuccess = success
     loginFailure = failure

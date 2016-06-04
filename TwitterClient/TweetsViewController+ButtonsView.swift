@@ -30,6 +30,17 @@ extension TweetsViewController: ButtonsViewDelegate {
   }
   
   func buttonsView(buttonsView: ButtonsView, tweetLoved tweet: Tweet, success: (() -> ())?, failure: ((NSError) -> ())?) {
-    
+    if tweet.favorited == false {
+      TwitterClient.sharedInstance.love(
+        tweet,
+        success: {
+          print("love \(tweet.id!) success")
+          success?()
+        },
+        failure: { (error: NSError) in
+          failure?(error)
+        }
+      )
+    }
   }
 }

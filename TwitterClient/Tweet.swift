@@ -25,6 +25,7 @@ protocol Tweet {
   var id: String? { get }
   var retweeted: Bool? { get set }
   var media: Media? { get }
+  var favorited: Bool? { get set }
 }
 
 
@@ -64,6 +65,7 @@ class OriginalTweet: Tweet {
   var retweeted: Bool?
   var screenName: String?
   var media: Media?
+  var favorited: Bool?
   
   init(json: JSON) {
     text = json["text"].string
@@ -73,13 +75,14 @@ class OriginalTweet: Tweet {
       timestamp = formatter.dateFromString(timestampString)
     }
     retweetCount = json["retweet_count"].int
-    favoritesCount = json["favourites_count"].int
+    favoritesCount = json["favorite_count"].int
     user = User(json: json["user"])
     id = json["id_str"].string
     retweeted = json["retweeted"].bool
     if json["entities"]["media"].dictionary != nil {
       media = Media(json: json["entities"]["media"])
     }
+    favorited = json["favorited"].bool
   }
 }
 
@@ -126,13 +129,23 @@ class Retweet: Tweet {
   var retweeted: Bool? {
     get {
       return originalTweet?.retweeted
-    } set {
+    }
+    set {
       originalTweet?.retweeted = newValue
     }
   }
   
   var media: Media? {
     return originalTweet?.media
+  }
+  
+  var favorited: Bool? {
+    get {
+      return originalTweet?.favorited
+    }
+    set {
+      originalTweet?.favorited = newValue
+    }
   }
   
   var retweetedBy: User?

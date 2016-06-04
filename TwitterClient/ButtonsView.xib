@@ -26,21 +26,15 @@
                         <constraint firstAttribute="height" constant="16" id="qSN-5U-zaL"/>
                     </constraints>
                 </imageView>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like" translatesAutoresizingMaskIntoConstraints="NO" id="E6M-1v-Vv2">
-                    <rect key="frame" x="236" y="292" width="16" height="16"/>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="love" translatesAutoresizingMaskIntoConstraints="NO" id="E6M-1v-Vv2">
+                    <rect key="frame" x="216" y="292" width="16" height="16"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="16" id="eN8-gQ-aDt"/>
                         <constraint firstAttribute="height" constant="16" id="sOD-8L-XOg"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNI-HU-fSB">
-                    <rect key="frame" x="150" y="292" width="36" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFP-E0-Udw">
-                    <rect key="frame" x="256" y="292" width="36" height="17"/>
+                    <rect key="frame" x="236" y="292" width="36" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -52,11 +46,17 @@
                         <constraint firstAttribute="width" constant="16" id="zY4-sO-PF5"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNI-HU-fSB">
+                    <rect key="frame" x="150" y="292" width="36" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="aNI-HU-fSB" firstAttribute="centerY" secondItem="5g9-3g-tuv" secondAttribute="centerY" id="0zw-Vf-4am"/>
-                <constraint firstItem="E6M-1v-Vv2" firstAttribute="leading" secondItem="aNI-HU-fSB" secondAttribute="trailing" constant="50" id="9kv-Zs-Gjj"/>
+                <constraint firstItem="E6M-1v-Vv2" firstAttribute="leading" secondItem="nNT-XR-Zim" secondAttribute="trailing" constant="70" id="2lh-dZ-8e5"/>
                 <constraint firstItem="DFP-E0-Udw" firstAttribute="centerY" secondItem="5g9-3g-tuv" secondAttribute="centerY" id="BIk-zh-Gab"/>
                 <constraint firstItem="Zc9-qH-dS8" firstAttribute="leading" secondItem="5g9-3g-tuv" secondAttribute="leading" constant="64" id="DD2-Xb-6Zt"/>
                 <constraint firstItem="E6M-1v-Vv2" firstAttribute="centerY" secondItem="5g9-3g-tuv" secondAttribute="centerY" id="IpS-qm-ozP"/>
@@ -70,7 +70,7 @@
         </view>
     </objects>
     <resources>
-        <image name="like" width="27" height="36"/>
+        <image name="love" width="27" height="36"/>
         <image name="reply" width="32" height="36"/>
         <image name="retweet" width="37" height="36"/>
     </resources>
