@@ -2,12 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10117"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="TwitterClient" customModuleProvider="target">
             <connections>
                 <outlet property="profileHeaderView" destination="pIK-VL-aqJ" id="U3b-g2-lhW"/>
+                <outlet property="tweetsTableView" destination="M6Y-Bu-hwS" id="27P-HZ-UAB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,10 +24,18 @@
                         <constraint firstAttribute="height" constant="220" id="EA6-Nj-Rd6"/>
                     </constraints>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M6Y-Bu-hwS">
+                    <rect key="frame" x="8" y="236" width="584" height="356"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="pIK-VL-aqJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3I0-XL-5xN"/>
+                <constraint firstAttribute="bottom" secondItem="M6Y-Bu-hwS" secondAttribute="bottom" constant="8" id="DLo-7q-rSg"/>
+                <constraint firstAttribute="trailing" secondItem="M6Y-Bu-hwS" secondAttribute="trailing" constant="8" id="bD9-nc-WiS"/>
+                <constraint firstItem="M6Y-Bu-hwS" firstAttribute="top" secondItem="pIK-VL-aqJ" secondAttribute="bottom" constant="16" id="bw2-fg-pd2"/>
+                <constraint firstItem="M6Y-Bu-hwS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="dCa-YT-9Ic"/>
                 <constraint firstItem="pIK-VL-aqJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qev-je-1ou"/>
                 <constraint firstAttribute="trailing" secondItem="pIK-VL-aqJ" secondAttribute="trailing" id="uPA-ny-TF0"/>
             </constraints>
