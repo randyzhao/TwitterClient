@@ -18,8 +18,8 @@ enum TweetType {
 protocol Tweet {
   var text: String? { get }
   var timestamp: NSDate? { get }
-  var retweetCount: Int? { get }
-  var favoritesCount: Int? { get }
+  var retweetCount: Int? { get set }
+  var favoritesCount: Int? { get set }
   var tweetType: TweetType { get }
   var user: User? { get }
   var id: String? { get }
@@ -94,11 +94,21 @@ class Retweet: Tweet {
   }
   
   var retweetCount: Int? {
-    return originalTweet?.retweetCount
+    get {
+      return originalTweet?.retweetCount
+    }
+    set {
+      originalTweet?.retweetCount = newValue
+    }
   }
   
   var favoritesCount: Int? {
-    return originalTweet?.favoritesCount
+    get {
+      return originalTweet?.favoritesCount
+    }
+    set {
+      originalTweet?.favoritesCount = newValue
+    }
   }
   
   var tweetType: TweetType {

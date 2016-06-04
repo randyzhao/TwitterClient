@@ -84,8 +84,18 @@ class ButtonsView: UIView {
       delegate?.buttonsView(self, retweeted: tweet!, success: {
         () -> () in
         self.tweet?.retweeted = true
+        if self.tweet?.retweetCount != nil {
+          self.tweet?.retweetCount! += 1
+        }
         self.refreshContent()
-      }, failure: nil)
+        UIView.animateWithDuration(0.3, animations: {
+          self.retweetImageView.transform = CGAffineTransformMakeScale(2, 2)
+          }, completion: { (completed) in
+            UIView.animateWithDuration(0.3, animations: {
+              self.retweetImageView.transform = CGAffineTransformIdentity
+              }, completion: nil)
+        })
+        }, failure: nil)
     }
   }
   
